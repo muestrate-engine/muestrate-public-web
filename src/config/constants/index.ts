@@ -153,7 +153,7 @@ export const teamMembers = [
   {
     initials: "HV",
     name: "Harvey Vasquez",
-    role: "Director de Estrategia",
+    role: "Director de Marketing",
     bio: "El que atiende cuando llamas. 4 años haciendo digital para MYPEs.",
     colorClass: "bg-orange text-paper",
     imageUrl: "/team/harvey.jpg",
@@ -184,8 +184,8 @@ export const teamMembers = [
   {
     initials: "YO",
     name: "Yonatan Ordoñez",
-    role: "Director de Marketing",
-    bio: "La voz de la agencia en redes. Sabe qué vende en Perú, además de ser desarrollador full-stack.",
+    role: "Desarrollador Full-Stack & SEO",
+    bio: "Experto en marketing digital y desarrollo de software.",
     colorClass: "bg-sky text-paper",
     imageUrl: "/team/yonatan.jpg",
     sparkle: "light",
