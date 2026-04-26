@@ -101,7 +101,8 @@ export const workCases = [
     title: "La Base Cowork",
     result: "+150% de reservas en 3 meses · Huancayo",
     visual: "COWORKING",
-    className: "bg-orange text-paper md:col-span-3 aspect-[8/5]",
+    className:
+      "bg-orange text-paper md:col-span-3 min-h-[17rem] md:min-h-0 md:aspect-[8/5]",
     imageUrl: "/preview/labase.jpg",
     websiteUrl: "https://labase.pe",
   },
@@ -110,7 +111,8 @@ export const workCases = [
     title: "Egida Juridica",
     result: '1er lugar en "firma legal huancayo" · +10 reservas/sem.',
     visual: "LEGAL",
-    className: "bg-ink text-paper md:col-span-3 aspect-[8/5]",
+    className:
+      "bg-ink text-paper md:col-span-3 min-h-[17rem] md:min-h-0 md:aspect-[8/5]",
     imageUrl: "/preview/egidajuridica.jpg",
     websiteUrl: "https://egidajuridica.com",
   },
@@ -119,7 +121,8 @@ export const workCases = [
     title: "Finacorp",
     result: "+50% de clientes nuevos en 3 meses",
     visual: "HOLDING",
-    className: "bg-sun text-ink md:col-span-2 aspect-[4/5]",
+    className:
+      "bg-sun text-ink md:col-span-2 min-h-[17rem] md:min-h-0 md:aspect-[4/5]",
     imageUrl: "/preview/finacorp.jpg",
     websiteUrl: "https://finacorp.org",
   },
@@ -128,7 +131,8 @@ export const workCases = [
     title: "Studio dental Evolution",
     result: "Producto de software para estudios jurídicos",
     visual: "DENTAL",
-    className: "bg-lime text-ink md:col-span-2 aspect-[4/5]",
+    className:
+      "bg-lime text-ink md:col-span-2 min-h-[17rem] md:min-h-0 md:aspect-[4/5]",
     imageUrl: "/preview/evolution.jpg",
     websiteUrl: "https://evolution.com",
   },
@@ -137,7 +141,8 @@ export const workCases = [
     title: "Arxatec",
     result: "Producto de software para estudios jurídicos",
     visual: "SOFTWARE",
-    className: "bg-paper text-ink md:col-span-2 aspect-[4/5]",
+    className:
+      "bg-paper text-ink md:col-span-2 min-h-[17rem] md:min-h-0 md:aspect-[4/5]",
     imageUrl: "/preview/arxatec.jpg",
     websiteUrl: "https://arxatec.net",
   },
@@ -149,10 +154,12 @@ export const teamMembers = [
     initials: "HV",
     name: "Harvey Vasquez",
     role: "Director de Estrategia",
-    bio: "El que atiende cuando llamas. 8 años haciendo digital para MYPEs.",
+    bio: "El que atiende cuando llamas. 4 años haciendo digital para MYPEs.",
     colorClass: "bg-orange text-paper",
     imageUrl: "/team/harvey.jpg",
     sparkle: "light",
+    linkedinUrl: "https://www.linkedin.com/in/harvey-yerik/",
+    instagramUrl: "https://www.instagram.com/harveyyerik/?hl=es",
   },
   {
     initials: "JS",
@@ -162,6 +169,7 @@ export const teamMembers = [
     colorClass: "bg-ink text-paper",
     imageUrl: "/team/jhonny.jpg",
     sparkle: "light",
+    linkedinUrl: "https://www.linkedin.com/in/jhonny-sanes/",
   },
   {
     initials: "MG",
@@ -171,15 +179,19 @@ export const teamMembers = [
     colorClass: "bg-sun text-ink",
     imageUrl: "/team/michael.jpg",
     sparkle: "light",
+    instagramUrl: "https://www.instagram.com/katsu_lp/?hl=es",
   },
   {
     initials: "YO",
     name: "Yonatan Ordoñez",
     role: "Director de Marketing",
-    bio: "La voz de la agencia en redes. Sabe qué vende en Perú.",
+    bio: "La voz de la agencia en redes. Sabe qué vende en Perú, además de ser desarrollador full-stack.",
     colorClass: "bg-sky text-paper",
     imageUrl: "/team/yonatan.jpg",
     sparkle: "light",
+    linkedinUrl:
+      "https://www.linkedin.com/in/yonatan-alessander-ordonez-diego/",
+    instagramUrl: "https://www.instagram.com/alexod17/?hl=es",
   },
 ] as const;
 

@@ -18,7 +18,7 @@ import { SectionHeading } from "@components/shared";
     <div class="grid gap-5 md:grid-cols-6">
       {
         workCases.map((item) => {
-          const className = `sticker-lift brand-outline relative flex min-h-72 flex-col justify-between overflow-hidden rounded-brand-lg p-7 ${
+          const className = `sticker-lift brand-outline relative flex w-full min-w-0 flex-col justify-between gap-3 overflow-hidden rounded-brand-lg p-6 md:p-7 ${
             item.className
           }${item.imageUrl ? " !bg-transparent !text-paper" : ""}`;
 
@@ -51,16 +51,18 @@ import { SectionHeading } from "@components/shared";
                   {item.visual}
                 </div>
               )}
-              <div class="relative z-10">
-                <span class="inline-flex rounded-full bg-ink/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
+              <div class="relative z-10 w-full min-w-0 shrink-0">
+                <span class="inline-flex max-w-full rounded-full bg-ink/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
                   {item.category}
                 </span>
               </div>
-              <div class="relative z-10">
-                <h3 class="font-display text-2xl font-semibold leading-none tracking-normal md:text-[1.65rem]">
+              <div class="relative z-10 w-full min-w-0">
+                <h3 class="font-display text-2xl font-semibold leading-tight tracking-normal md:text-[1.65rem]">
                   {item.title}
                 </h3>
-                <p class="mt-2 text-sm opacity-80">{item.result}</p>
+                <p class="mt-2 text-sm opacity-80 [overflow-wrap:anywhere]">
+                  {item.result}
+                </p>
               </div>
             </a>
           ) : (
@@ -87,16 +89,18 @@ import { SectionHeading } from "@components/shared";
                   {item.visual}
                 </div>
               )}
-              <div class="relative z-10">
-                <span class="inline-flex rounded-full bg-ink/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
+              <div class="relative z-10 w-full min-w-0 shrink-0">
+                <span class="inline-flex max-w-full rounded-full bg-ink/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
                   {item.category}
                 </span>
               </div>
-              <div class="relative z-10">
-                <h3 class="font-display text-2xl font-semibold leading-none tracking-normal md:text-[1.65rem]">
+              <div class="relative z-10 w-full min-w-0">
+                <h3 class="font-display text-2xl font-semibold leading-tight tracking-normal md:text-[1.65rem]">
                   {item.title}
                 </h3>
-                <p class="mt-2 text-sm opacity-80">{item.result}</p>
+                <p class="mt-2 text-sm opacity-80 [overflow-wrap:anywhere]">
+                  {item.result}
+                </p>
               </div>
             </article>
           );
