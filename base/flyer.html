@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Muéstrate — Flyer para redes</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { background: var(--m-paper-warm); min-height: 100vh; padding: 60px 24px; }
+  .page { max-width: 1200px; margin: 0 auto; }
+  h1 { font-family: var(--m-font-display); font-weight:600; font-size:44px; letter-spacing:-0.02em; margin:0 0 8px; }
+  .sub { color: var(--m-gray-700); margin: 0 0 48px; font-size: 16px; max-width: 680px; }
+  .label { font-family: var(--m-font-display); font-weight:600; font-size:13px; color:var(--m-orange); letter-spacing:0.1em; margin-bottom:12px; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; text-decoration:none; color: var(--m-ink); font-weight:700; margin-bottom:24px; font-size:14px; }
+
+  .variant-title { display:flex; align-items:center; gap:12px; margin: 48px 0 20px; }
+  .variant-title h2 { font-family: var(--m-font-display); font-weight:600; font-size: 22px; margin:0; letter-spacing:-0.01em; }
+  .variant-title .dot { width:10px; height:10px; border-radius:50%; background: var(--m-orange); }
+  .variant-title .meta { font-size: 13px; color: var(--m-gray-500); margin-left: auto; font-weight: 600; letter-spacing: 0.06em; }
+
+  /* Grid of 3 flyers */
+  .flyer-row { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  /* Each flyer is 1:1 (post feed) */
+  .flyer {
+    width: 100%; aspect-ratio: 1/1;
+    border-radius: 18px; overflow: hidden;
+    position: relative;
+    font-family: var(--m-font-body);
+    padding: 32px;
+    display: flex; flex-direction: column;
+    box-shadow: var(--m-shadow-md);
+  }
+
+  /* ====== FLYER A: Launch / Promo ====== */
+  .fa {
+    background: var(--m-ink); color: var(--m-paper);
+  }
+  .fa .top { display:flex; justify-content:space-between; align-items: flex-start; }
+  .fa .logo { width: 140px; }
+  .fa .burst {
+    background: var(--m-orange); color: var(--m-paper);
+    font-family: var(--m-font-display); font-weight: 700;
+    font-size: 13px; letter-spacing: 0.04em;
+    padding: 8px 14px; border-radius: 999px;
+    transform: rotate(6deg);
+  }
+  .fa h2 {
+    font-family: var(--m-font-display); font-weight: 600;
+    font-size: 52px; line-height: 0.94; letter-spacing: -0.03em;
+    margin: auto 0 0; max-width: 100%;
+  }
+  .fa h2 .hl { color: var(--m-orange); }
+  .fa .bottom-row {
+    margin-top: 20px; display:flex; justify-content: space-between; align-items: center;
+  }
+  .fa .price-chip {
+    background: var(--m-paper); color: var(--m-ink); padding: 10px 16px;
+    border-radius: 999px; font-family: var(--m-font-display); font-weight: 600;
+    font-size: 16px;
+  }
+  .fa .url { font-size: 11px; letter-spacing: 0.1em; font-weight: 700; color: var(--m-gray-300); }
+
+  /* ====== FLYER B: Big typographic ====== */
+  .fb {
+    background: var(--m-orange); color: var(--m-paper);
+    justify-content: space-between;
+  }
+  .fb .logo-s { width: 110px; }
+  .fb .huge {
+    font-family: var(--m-font-display); font-weight: 600;
+    font-size: 120px; line-height: 0.85; letter-spacing: -0.05em;
+    margin: 0;
+  }
+  .fb .huge span { display:block; }
+  .fb .sub2 {
+    font-family: var(--m-font-display); font-weight: 500;
+    font-size: 18px; line-height: 1.2; margin-top: 16px;
+    max-width: 90%;
+  }
+  .fb .foot { display:flex; justify-content: space-between; align-items: center; font-size: 11px; letter-spacing: 0.1em; font-weight: 700; }
+  .fb .foot .cta-b { background: var(--m-ink); color: var(--m-paper); padding: 10px 16px; border-radius: 999px; letter-spacing: 0.04em; font-size: 12px; }
+  .fb .sparkle-bg {
+    position: absolute; right: -30px; top: 90px; opacity: .18;
+    font-family: var(--m-font-display); font-size: 220px; line-height: 1; color: var(--m-paper); font-weight: 700;
+  }
+
+  /* ====== FLYER C: Testimonial ====== */
+  .fc {
+    background: var(--m-paper-warm); color: var(--m-ink);
+    border: 1.5px solid var(--m-ink);
+    justify-content: space-between;
+  }
+  .fc .top { display:flex; justify-content:space-between; align-items:flex-start; }
+  .fc .logo-dark { width: 120px; }
+  .fc .quote-icon {
+    font-family: var(--m-font-display); font-size: 80px; color: var(--m-orange);
+    line-height: 1; font-weight: 700;
+  }
+  .fc .quote {
+    font-family: var(--m-font-display); font-weight: 500;
+    font-size: 28px; line-height: 1.15; letter-spacing: -0.015em;
+    margin: 12px 0 20px;
+  }
+  .fc .who { display:flex; align-items:center; gap: 12px; }
+  .fc .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--m-orange); color: var(--m-paper);
+    display:flex; align-items:center; justify-content: center;
+    font-family: var(--m-font-display); font-weight: 600; font-size: 20px;
+  }
+  .fc .who .name { font-weight: 700; font-size: 14px; }
+  .fc .who .biz { font-size: 12px; color: var(--m-gray-500); }
+  .fc .stars { color: var(--m-orange); font-size: 16px; margin-bottom: 4px; }
+
+  /* ====== Story variants (9:16) ====== */
+  .story-row { display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px; justify-items: center; }
+  .story {
+    width: 100%; max-width: 320px; aspect-ratio: 9/16;
+    border-radius: 20px; overflow: hidden;
+    position: relative; padding: 36px 28px;
+    font-family: var(--m-font-body);
+    display: flex; flex-direction: column;
+    box-shadow: var(--m-shadow-md);
+  }
+
+  .st1 { background: var(--m-ink); color: var(--m-paper); }
+  .st1 .logo-s { width: 120px; }
+  .st1 h2 {
+    font-family: var(--m-font-display); font-weight: 600;
+    font-size: 56px; line-height: 0.95; letter-spacing: -0.03em;
+    margin: auto 0 24px;
+  }
+  .st1 h2 .hl { color: var(--m-orange); }
+  .st1 .pill-cta {
+    background: var(--m-orange); color: var(--m-paper); text-align: center;
+    padding: 18px; border-radius: 999px; font-family: var(--m-font-display);
+    font-weight: 600; font-size: 18px;
+  }
+  .st1 .url { font-size: 11px; letter-spacing: 0.12em; text-align: center; margin-top: 16px; color: var(--m-gray-300); font-weight: 700; }
+
+  .st2 { background: var(--m-orange); color: var(--m-paper); justify-content: space-between; }
+  .st2 .logo-s { width: 100px; }
+  .st2 .mega {
+    font-family: var(--m-font-display); font-weight: 600;
+    font-size: 84px; line-height: 0.9; letter-spacing: -0.04em;
+    margin: auto 0;
+  }
+  .st2 .foot { background: var(--m-ink); color: var(--m-paper); padding: 14px; border-radius: 14px; display:flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .st3 { background: var(--m-paper); color: var(--m-ink); border: 1.5px solid var(--m-ink); justify-content: space-between; }
+  .st3 .top { display:flex; justify-content: space-between; align-items: flex-start; }
+  .st3 .logo-dark { width: 110px; }
+  .st3 .stars { color: var(--m-orange); font-size: 18px; }
+  .st3 .quote {
+    font-family: var(--m-font-display); font-weight: 500;
+    font-size: 34px; line-height: 1.12; letter-spacing: -0.015em;
+  }
+  .st3 .who { display:flex; align-items:center; gap: 10px; margin-top: 20px; }
+  .st3 .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--m-orange); color: var(--m-paper); display:flex; align-items: center; justify-content: center; font-family: var(--m-font-display); font-weight: 600; }
+
+  @media (max-width: 860px) {
+    .flyer-row, .story-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="back-link">← Volver al sistema</a>
+  <div class="label">ENTREGABLE 02</div>
+  <h1>Flyers para redes sociales</h1>
+  <p class="sub">Plantillas para Instagram, Facebook y WhatsApp. Tres formatos feed (1:1) y tres stories (9:16). Todos usan la misma grilla y reglas: logo arriba, mensaje grande al centro, CTA o info abajo.</p>
+
+  <!-- ===== FEED 1:1 ===== -->
+  <div class="variant-title">
+    <span class="dot"></span>
+    <h2>Posts de feed · 1:1</h2>
+    <span class="meta">1080 × 1080 PX</span>
+  </div>
+
+  <div class="flyer-row">
+    <!-- FLYER A -->
+    <div class="flyer fa">
+      <div class="top">
+        <svg class="logo" viewBox="0 0 520 140" fill="none" style="color:currentColor">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"/><circle cx="36" cy="6" r="3" fill="currentColor"/></g>
+        </svg>
+        <div class="burst">¡PROMO!</div>
+      </div>
+      <h2>Tu web lista<br>en <span class="hl">48 horas.</span></h2>
+      <div class="bottom-row">
+        <div class="price-chip">desde S/ 250</div>
+        <div class="url">MUESTRATE.PE</div>
+      </div>
+    </div>
+
+    <!-- FLYER B -->
+    <div class="flyer fb">
+      <div class="sparkle-bg">✦</div>
+      <svg class="logo-s" viewBox="0 0 520 140" fill="none" style="color:currentColor">
+        <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+        <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"/><circle cx="36" cy="6" r="3" fill="currentColor"/></g>
+      </svg>
+      <div>
+        <h2 class="huge"><span>muéstra</span><span>te ya.</span></h2>
+        <div class="sub2">Porque si no apareces en Google, no existes para tu cliente.</div>
+      </div>
+      <div class="foot">
+        <span>MUESTRATE.PE</span>
+        <span class="cta-b">EMPEZAR →</span>
+      </div>
+    </div>
+
+    <!-- FLYER C (testimonial) -->
+    <div class="flyer fc">
+      <div class="top">
+        <svg class="logo-dark" viewBox="0 0 520 140" fill="none" style="color:var(--m-ink)">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="#FF5B1F"/><circle cx="36" cy="6" r="3" fill="#FF5B1F"/></g>
+        </svg>
+        <div class="quote-icon">"</div>
+      </div>
+      <div>
+        <div class="stars">★★★★★</div>
+        <div class="quote">Me llegó mi primer cliente por Google a la semana de tener la web.</div>
+        <div class="who">
+          <div class="avatar">R</div>
+          <div>
+            <div class="name">Rosa M.</div>
+            <div class="biz">Barbería "El Chalaco"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STORIES 9:16 ===== -->
+  <div class="variant-title">
+    <span class="dot"></span>
+    <h2>Historias · 9:16</h2>
+    <span class="meta">1080 × 1920 PX</span>
+  </div>
+
+  <div class="story-row">
+    <div class="story st1">
+      <svg class="logo-s" viewBox="0 0 520 140" fill="none" style="color:currentColor">
+        <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+        <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"/><circle cx="36" cy="6" r="3" fill="currentColor"/></g>
+      </svg>
+      <h2>Web que<br>sí <span class="hl">vende.</span></h2>
+      <div class="pill-cta">Quiero la mía →</div>
+      <div class="url">MUESTRATE.PE</div>
+    </div>
+
+    <div class="story st2">
+      <svg class="logo-s" viewBox="0 0 520 140" fill="none" style="color:currentColor">
+        <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+        <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"/><circle cx="36" cy="6" r="3" fill="currentColor"/></g>
+      </svg>
+      <div class="mega">48h<br>y listo.</div>
+      <div class="foot"><span>PLAN EMPIEZA · S/250</span><span>→</span></div>
+    </div>
+
+    <div class="story st3">
+      <div class="top">
+        <svg class="logo-dark" viewBox="0 0 520 140" fill="none" style="color:var(--m-ink)">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="#FF5B1F"/><circle cx="36" cy="6" r="3" fill="#FF5B1F"/></g>
+        </svg>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="quote">"Vale cada sol. Y me lo hicieron en 2 días, literal."</div>
+      <div class="who">
+        <div class="avatar">J</div>
+        <div>
+          <div style="font-weight:700; font-size:13px;">Jhon T.</div>
+          <div style="font-size: 12px; color: var(--m-gray-500);">Ceviches del Puerto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

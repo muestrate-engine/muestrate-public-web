@@ -1,0 +1,105 @@
+---
+import BrandWordmark from "../brand_wordmark/index.astro";
+import SectionTitle from "../section_title/index.astro";
+---
+
+<section class="bg-paper-warm pb-24 md:pb-32">
+  <div class="container-shell">
+    <SectionTitle title="Posts de feed · 1:1" meta="1080 × 1080 PX" />
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      <article class="relative flex aspect-square flex-col overflow-hidden rounded-brand-lg bg-ink p-8 text-paper shadow-brand-md">
+        <div class="flex items-start justify-between gap-4">
+          <BrandWordmark class="w-36" />
+          <span class="rotate-6 rounded-full bg-orange px-4 py-2 font-display text-sm font-bold uppercase tracking-[0.04em]">¡Promo!</span>
+        </div>
+        <h2 class="mt-auto font-display text-[clamp(2.75rem,5vw,3.6rem)] font-semibold leading-[0.94] tracking-normal">
+          Tu web lista<br />en <span class="text-orange">48 horas.</span>
+        </h2>
+        <div class="mt-5 flex items-center justify-between gap-4">
+          <span class="rounded-full bg-paper px-4 py-2 font-display font-semibold text-ink">desde S/ 250</span>
+          <span class="text-[0.68rem] font-bold uppercase tracking-[0.1em] text-gray-300">Muestrate.pe</span>
+        </div>
+      </article>
+
+      <article class="relative flex aspect-square flex-col justify-between overflow-hidden rounded-brand-lg bg-orange p-8 text-paper shadow-brand-md">
+        <div class="absolute -right-8 top-20 font-display text-[13rem] font-bold leading-none text-paper/20" aria-hidden="true">✦</div>
+        <BrandWordmark class="w-32" />
+        <div class="relative">
+          <h2 class="font-display text-[clamp(4.25rem,9vw,7rem)] font-semibold leading-[0.85] tracking-normal">
+            <span class="block">muéstra</span><span class="block">te ya.</span>
+          </h2>
+          <p class="mt-4 max-w-[90%] font-display text-lg font-medium leading-tight tracking-normal">
+            Porque si no apareces en Google, no existes para tu cliente.
+          </p>
+        </div>
+        <div class="relative flex items-center justify-between gap-4 text-[0.68rem] font-bold uppercase tracking-[0.1em]">
+          <span>Muestrate.pe</span>
+          <span class="rounded-full bg-ink px-4 py-2 text-xs tracking-[0.04em]">Empezar →</span>
+        </div>
+      </article>
+
+      <article class="brand-outline flex aspect-square flex-col justify-between overflow-hidden rounded-brand-lg bg-paper-warm p-8 text-ink shadow-brand-md">
+        <div class="flex items-start justify-between gap-4">
+          <BrandWordmark class="w-32" accent />
+          <div class="font-display text-7xl font-bold leading-none text-orange">"</div>
+        </div>
+        <div>
+          <div class="mb-2 text-base tracking-[0.12em] text-orange">★★★★★</div>
+          <p class="font-display text-[clamp(1.6rem,3vw,2rem)] font-medium leading-tight tracking-normal">
+            Me llegó mi primer cliente por Google a la semana de tener la web.
+          </p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="grid size-11 place-items-center rounded-full bg-orange font-display text-xl font-semibold text-paper">R</div>
+            <div>
+              <div class="text-sm font-bold">Rosa M.</div>
+              <div class="text-xs text-gray-500">Barbería "El Chalaco"</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <SectionTitle title="Historias · 9:16" meta="1080 × 1920 PX" />
+
+    <div class="grid justify-items-center gap-6 lg:grid-cols-3">
+      <article class="flex aspect-[9/16] w-full max-w-80 flex-col rounded-brand-lg bg-ink p-8 text-paper shadow-brand-md">
+        <BrandWordmark class="w-32" />
+        <h2 class="mt-auto font-display text-[clamp(3.25rem,7vw,4rem)] font-semibold leading-[0.95] tracking-normal">
+          Web que<br />sí <span class="text-orange">vende.</span>
+        </h2>
+        <div class="mt-6 rounded-full bg-orange px-5 py-4 text-center font-display text-lg font-semibold">Quiero la mía →</div>
+        <div class="mt-4 text-center text-[0.68rem] font-bold uppercase tracking-[0.12em] text-gray-300">Muestrate.pe</div>
+      </article>
+
+      <article class="flex aspect-[9/16] w-full max-w-80 flex-col justify-between rounded-brand-lg bg-orange p-8 text-paper shadow-brand-md">
+        <BrandWordmark class="w-28" />
+        <div class="font-display text-[clamp(4.5rem,10vw,5.5rem)] font-semibold leading-[0.9] tracking-normal">
+          48h<br />y listo.
+        </div>
+        <div class="flex items-center justify-between rounded-brand-md bg-ink p-4 text-xs font-bold uppercase tracking-[0.06em]">
+          <span>Plan Empieza · S/250</span><span>→</span>
+        </div>
+      </article>
+
+      <article class="brand-outline flex aspect-[9/16] w-full max-w-80 flex-col justify-between rounded-brand-lg bg-paper p-8 text-ink shadow-brand-md">
+        <div class="flex items-start justify-between gap-4">
+          <BrandWordmark class="w-28" accent />
+          <div class="text-lg tracking-[0.12em] text-orange">★★★★★</div>
+        </div>
+        <div>
+          <p class="font-display text-[clamp(2rem,5vw,2.5rem)] font-medium leading-tight tracking-normal">
+            "Vale cada sol. Y me lo hicieron en 2 días, literal."
+          </p>
+          <div class="mt-5 flex items-center gap-3">
+            <div class="grid size-10 place-items-center rounded-full bg-orange font-display font-semibold text-paper">J</div>
+            <div>
+              <div class="text-sm font-bold">Jhon T.</div>
+              <div class="text-xs text-gray-500">Ceviches del Puerto</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

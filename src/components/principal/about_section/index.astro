@@ -1,0 +1,85 @@
+---
+import { brandValues } from "@config";
+---
+
+<section id="acerca" class="bg-paper-warm py-24 md:py-32">
+  <div class="container-shell">
+    <div
+      class="mb-4 font-display text-sm font-semibold uppercase tracking-[0.1em] text-orange"
+    >
+      02 / Acerca de
+    </div>
+
+    <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+      <div>
+        <span
+          class="mb-5 inline-flex rounded-full bg-ink px-4 py-2 text-xs font-bold uppercase tracking-[0.06em] text-paper"
+          >Hecho en Perú</span
+        >
+        <h2
+          class="font-display text-[clamp(2.25rem,5vw,3.5rem)] font-semibold leading-none tracking-normal"
+        >
+          Somos una agencia <span class="text-orange">pe,</span> pero en serio.
+        </h2>
+        <div class="mt-6 space-y-4 text-lg leading-8 text-gray-700">
+          <p>
+            Nacimos para los negocios que ya funcionan — que tienen clientes,
+            recetas, horarios, todo — pero que no aparecen en Google cuando
+            alguien los busca. Ese vacío es dinero que se escapa.
+          </p>
+          <p>
+            No somos una agencia fancy de Miraflores con 20 reuniones antes de
+            empezar. Somos un equipo chico, rápido, que conoce al emprendedor
+            peruano porque nosotros también empezamos así.
+          </p>
+          <p>
+            <strong class="text-ink"
+              >Entregas rápido. Precios claros. Sin letra chica.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="relative grid aspect-square place-items-center overflow-hidden rounded-brand-xl bg-ink p-8 text-orange md:p-12"
+      >
+        <div
+          class="absolute right-8 top-6 font-display text-7xl font-bold leading-none text-paper"
+          aria-hidden="true"
+        >
+          ✦
+        </div>
+        <div
+          class="font-display text-[clamp(13rem,38vw,30rem)] font-bold leading-[0.78] tracking-normal"
+        >
+          m
+        </div>
+        <div
+          class="absolute bottom-6 left-6 flex items-center gap-3 rounded-brand-md bg-paper px-5 py-4 text-ink shadow-brand-md"
+        >
+          <span
+            class="font-display text-3xl font-semibold leading-none text-orange"
+            >+120</span
+          >
+          <span class="text-sm font-semibold leading-5">negocios mostrados</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        brandValues.map((value) => (
+          <article class="sticker-lift brand-outline rounded-brand-lg bg-paper p-7">
+            <div class="mb-4 grid size-12 place-items-center rounded-brand-md bg-orange font-display text-lg font-bold text-paper">
+              {value.icon}
+            </div>
+            <h3 class="font-display text-xl font-semibold tracking-normal">
+              {value.title}
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-gray-700">{value.text}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

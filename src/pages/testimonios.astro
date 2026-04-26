@@ -1,0 +1,27 @@
+---
+import { BaseLayout } from "@layouts";
+import {
+  CtaBanner,
+  ResultsSection,
+  SiteFooter,
+  SiteHeader,
+  TestimonialsGrid,
+  TestimonialsHero,
+} from "@components";
+import { PAGE_META, organizationSchema } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.testimonials} structuredData={organizationSchema}>
+  <SiteHeader />
+  <main>
+    <TestimonialsHero />
+    <TestimonialsGrid />
+    <ResultsSection />
+    <CtaBanner
+      title="¿Tu negocio"
+      highlight="también se muestra?"
+      note="Cuéntanos qué vendes, dónde estás y qué quieres conseguir. Te diremos qué conviene hacer primero."
+    />
+  </main>
+  <SiteFooter />
+</BaseLayout>

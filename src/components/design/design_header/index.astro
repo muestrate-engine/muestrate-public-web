@@ -1,0 +1,22 @@
+---
+import { DESIGN_NAVIGATION, ROUTES } from "@config";
+import { Logo } from "@components/shared";
+---
+
+<header class="sticky top-0 z-50 border-b-[1.5px] border-ink bg-paper-warm">
+  <div class="container-shell flex items-center justify-between gap-6 py-7">
+    <div class="flex items-center gap-3">
+      <Logo href={ROUTES.home} class="text-[1.35rem]" />
+      <span class="hidden text-sm font-semibold text-gray-500 sm:inline">/ design system</span>
+    </div>
+    <nav class="hidden flex-wrap justify-end gap-6 lg:flex" aria-label="Navegación del sistema de diseño">
+      {
+        DESIGN_NAVIGATION.map((item) => (
+          <a href={item.href} class="focus-ring rounded-full text-sm font-semibold text-ink transition hover:text-orange-600">
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

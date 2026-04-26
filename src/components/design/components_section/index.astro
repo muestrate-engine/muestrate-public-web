@@ -1,0 +1,94 @@
+---
+import { WHATSAPP_URL } from "@config";
+import { ButtonLink } from "@components/shared";
+---
+
+<section id="components" class="border-t-[1.5px] border-ink bg-paper-warm py-20 md:py-24">
+  <div class="container-shell">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-display text-lg font-semibold uppercase tracking-[0.1em] text-orange">04 / Componentes</p>
+        <h2 class="mt-2 font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none tracking-normal">Las piezas Lego.</h2>
+      </div>
+      <p class="max-w-md leading-7 text-gray-700">
+        Componentes reutilizables con bordes gruesos, sombras tipo "sticker" y esquinas redondeadas. Todo se siente tocable.
+      </p>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article class="brand-outline rounded-brand-lg bg-paper p-8">
+        <h3 class="mb-5 font-display text-lg font-semibold tracking-normal">Botones</h3>
+        <div class="flex flex-wrap items-center gap-3">
+          <ButtonLink href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quiero mi web</ButtonLink>
+          <ButtonLink href="#components" variant="dark">Ver planes</ButtonLink>
+          <ButtonLink href="#components" variant="ghost">Contactar</ButtonLink>
+        </div>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          <ButtonLink href={WHATSAPP_URL} size="sm" target="_blank" rel="noreferrer">Empezar →</ButtonLink>
+          <ButtonLink href={WHATSAPP_URL} variant="dark" size="sm" target="_blank" rel="noreferrer">WhatsApp</ButtonLink>
+          <ButtonLink href="#components" variant="ghost" size="sm">Saber más</ButtonLink>
+        </div>
+      </article>
+
+      <article class="brand-outline rounded-brand-lg bg-paper p-8">
+        <h3 class="mb-5 font-display text-lg font-semibold tracking-normal">Badges / Etiquetas</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="rounded-full border-[1.5px] border-ink bg-orange px-3 py-1.5 text-xs font-bold text-paper">● En vivo</span>
+          <span class="rounded-full border-[1.5px] border-ink bg-sun px-3 py-1.5 text-xs font-bold">Nuevo</span>
+          <span class="rounded-full border-[1.5px] border-ink bg-lime px-3 py-1.5 text-xs font-bold">48h</span>
+          <span class="rounded-full border-[1.5px] border-ink bg-ink px-3 py-1.5 text-xs font-bold text-paper">Pro</span>
+          <span class="rounded-full border-[1.5px] border-ink bg-paper px-3 py-1.5 text-xs font-bold">MYPE</span>
+        </div>
+      </article>
+
+      <article class="brand-outline rounded-brand-lg bg-paper p-8">
+        <h3 class="mb-5 font-display text-lg font-semibold tracking-normal">Formularios</h3>
+        <form class="grid gap-3">
+          <input class="focus-ring rounded-brand-md border-[1.5px] border-ink bg-paper px-5 py-4" placeholder="¿Cómo se llama tu negocio?" />
+          <input class="focus-ring rounded-brand-md border-[1.5px] border-ink bg-paper px-5 py-4" placeholder="tu@correo.com" />
+          <button type="button" class="focus-ring rounded-full border-[1.5px] border-orange bg-orange px-6 py-4 font-display font-semibold text-paper transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--m-ink)]">
+            Agendar llamada gratis
+          </button>
+        </form>
+      </article>
+
+      <article class="brand-outline rounded-brand-lg bg-gray-50 p-8">
+        <h3 class="mb-5 font-display text-lg font-semibold tracking-normal">Sticker cards</h3>
+        <div class="grid gap-4">
+          <div class="brand-outline rounded-brand-lg bg-orange p-6 text-paper shadow-pop">
+            <div class="font-display text-xl font-semibold tracking-normal">Plan Empieza</div>
+            <p class="mt-1 text-sm opacity-90">Web de 1 página · 48h · S/ 250</p>
+          </div>
+          <div class="brand-outline rounded-brand-lg bg-paper p-6 shadow-pop">
+            <div class="font-display text-xl font-semibold tracking-normal">Plan Crece</div>
+            <p class="mt-1 text-sm text-gray-700">Web 5 secciones + SEO · S/ 500</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-brand-lg border-[1.5px] border-ink bg-ink p-8 text-paper">
+        <h3 class="font-display text-lg font-semibold tracking-normal">Card oscura</h3>
+        <div class="my-4 flex items-baseline gap-3">
+          <span class="font-display text-6xl font-semibold leading-none tracking-normal">S/500</span>
+          <span class="text-sm text-paper/60">/ una vez</span>
+        </div>
+        <p class="text-sm leading-6 text-gray-300">Web completa, dominio + hosting primer año, formulario de contacto, WhatsApp, SEO básico.</p>
+        <div class="mt-5">
+          <ButtonLink href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="w-full">Lo quiero</ButtonLink>
+        </div>
+      </article>
+
+      <article class="brand-outline rounded-brand-lg bg-paper p-8">
+        <h3 class="mb-5 font-display text-lg font-semibold tracking-normal">Testimonial</h3>
+        <p class="font-display text-2xl font-medium leading-tight tracking-normal">"Me llegó mi primer cliente por Google a la semana de tener la web. Vale cada sol."</p>
+        <div class="mt-6 flex items-center gap-3">
+          <div class="grid size-11 place-items-center rounded-full bg-orange font-display text-lg font-semibold text-paper">R</div>
+          <div>
+            <div class="text-sm font-bold">Rosa M.</div>
+            <div class="text-xs text-gray-500">Barbería "El Chalaco" · Callao</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

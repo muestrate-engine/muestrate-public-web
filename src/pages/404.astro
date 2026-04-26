@@ -1,0 +1,10 @@
+---
+import { BaseLayout } from "@layouts";
+import { NotFoundContent, SiteHeader } from "@components";
+import { PAGE_META, organizationSchema } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.notFound} structuredData={organizationSchema} noindex>
+  <SiteHeader />
+  <NotFoundContent />
+</BaseLayout>

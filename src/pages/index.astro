@@ -1,0 +1,31 @@
+---
+import { BaseLayout } from "@layouts";
+import {
+  AboutSection,
+  CtaBanner,
+  HeroSection,
+  MarqueeStrip,
+  ServicesSection,
+  SiteFooter,
+  SiteHeader,
+  TeamSection,
+  TestimonialsSection,
+  WorkSection,
+} from "@components";
+import { localBusinessSchema, organizationSchema, PAGE_META } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.home} structuredData={[organizationSchema, localBusinessSchema]}>
+  <SiteHeader />
+  <main>
+    <HeroSection />
+    <MarqueeStrip />
+    <AboutSection />
+    <ServicesSection />
+    <WorkSection />
+    <TeamSection />
+    <TestimonialsSection />
+    <CtaBanner />
+  </main>
+  <SiteFooter />
+</BaseLayout>

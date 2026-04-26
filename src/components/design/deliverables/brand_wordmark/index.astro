@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+  accent?: boolean;
+}
+
+const { class: className = "w-36", accent = false } = Astro.props;
+const sparkleColor = accent ? "#FF5B1F" : "currentColor";
+---
+
+<svg viewBox="0 0 520 140" fill="none" class={className} aria-label="Muéstrate">
+  <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+  <g transform="translate(470,6)">
+    <path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill={sparkleColor}></path>
+    <circle cx="36" cy="6" r="3" fill={sparkleColor}></circle>
+  </g>
+</svg>

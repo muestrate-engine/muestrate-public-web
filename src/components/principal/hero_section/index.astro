@@ -1,0 +1,73 @@
+---
+import { heroStats, WHATSAPP_URL } from "@config";
+import { ButtonLink } from "@components/shared";
+---
+
+<section class="relative overflow-hidden bg-ink py-20 text-paper md:py-28">
+  <div
+    class="pointer-events-none absolute -right-16 top-16 rotate-12 font-display text-[16rem] font-bold leading-none text-orange/15 md:text-[22rem]"
+    aria-hidden="true"
+  >
+    ✦
+  </div>
+  <div
+    class="pointer-events-none absolute bottom-0 left-[20%] -rotate-6 font-display text-8xl font-bold leading-none text-paper/10"
+    aria-hidden="true"
+  >
+    ✦
+  </div>
+
+  <div class="container-shell relative">
+    <p
+      class="mb-8 inline-flex items-center gap-2 rounded-full border border-paper/15 bg-paper/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-paper md:text-sm"
+    >
+      <span class="size-2 rounded-full bg-orange" aria-hidden="true"></span>
+      Agencia de marketing
+    </p>
+
+    <h1
+      class="max-w-5xl font-display text-[clamp(3.5rem,10vw,8.75rem)] font-semibold leading-[0.9] tracking-normal"
+    >
+      Si no te <span class="text-orange">muestras</span>,<br />
+      no te <span
+        class="relative z-0 inline-block after:absolute after:inset-x-0 after:bottom-[0.08em] after:-z-10 after:h-[0.18em] after:rounded after:bg-orange"
+        >compran.</span
+      >
+    </h1>
+
+    <p class="mt-8 max-w-2xl text-lg leading-8 text-gray-300 md:text-[1.35rem]">
+      Hacemos webs, marca y campañas para MYPEs peruanas que están cansadas de
+      pasar desapercibidas. Entregamos rápido, hablamos claro, y cobramos justo.
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <ButtonLink
+        href={WHATSAPP_URL}
+        size="lg"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Quiero mi web en 48h →
+      </ButtonLink>
+      <ButtonLink href="#trabajo" variant="outlineLight" size="lg">
+        Ver nuestro trabajo
+      </ButtonLink>
+    </div>
+
+    <div
+      class="mt-16 grid gap-6 border-t border-paper/15 pt-10 sm:grid-cols-2 lg:grid-cols-4"
+    >
+      {
+        heroStats.map((stat) => (
+          <div>
+            <div class="font-display text-5xl font-semibold leading-none tracking-normal">
+              {stat.value}
+              <span class="text-orange">{stat.unit}</span>
+            </div>
+            <p class="mt-2 text-sm leading-5 text-gray-300">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import { brandRules } from "@config";
+---
+
+<section id="brand" class="border-t-[1.5px] border-ink bg-paper-warm py-20 md:py-24">
+  <div class="container-shell">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-display text-lg font-semibold uppercase tracking-[0.1em] text-orange">01 / Marca</p>
+        <h2 class="mt-2 font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none tracking-normal">El logo y su chispa.</h2>
+      </div>
+      <p class="max-w-md leading-7 text-gray-700">
+        El logotipo es <strong>"muéstrate"</strong> en minúsculas, redondo y amigable — con una chispa arriba a la derecha que representa el momento "ajá" cuando un negocio por fin aparece online.
+      </p>
+    </div>
+
+    <div class="grid gap-4 lg:grid-cols-3">
+      <div class="brand-outline grid aspect-[3/2] place-items-center rounded-brand-lg bg-ink p-8 text-paper">
+        <svg viewBox="0 0 520 140" fill="none" class="h-auto max-h-20 w-full" aria-label="Logotipo Muéstrate en blanco">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"></path><circle cx="36" cy="6" r="3" fill="currentColor"></circle></g>
+        </svg>
+      </div>
+      <div class="brand-outline grid aspect-[3/2] place-items-center rounded-brand-lg bg-paper p-8 text-ink">
+        <svg viewBox="0 0 520 140" fill="none" class="h-auto max-h-20 w-full" aria-label="Logotipo Muéstrate en negro">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"></path><circle cx="36" cy="6" r="3" fill="currentColor"></circle></g>
+        </svg>
+      </div>
+      <div class="brand-outline grid aspect-[3/2] place-items-center rounded-brand-lg bg-orange p-8 text-paper">
+        <svg viewBox="0 0 520 140" fill="none" class="h-auto max-h-20 w-full" aria-label="Logotipo Muéstrate sobre naranja">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"></path><circle cx="36" cy="6" r="3" fill="currentColor"></circle></g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="mt-6 grid gap-5 md:grid-cols-2">
+      <article class="brand-outline rounded-brand-lg bg-paper p-7">
+        <h3 class="font-display text-xl font-semibold tracking-normal">Sí hacer</h3>
+        <ul class="mt-4 space-y-2 text-sm leading-6 text-gray-700">
+          {brandRules.do.map((rule) => <li>✓ {rule}</li>)}
+        </ul>
+      </article>
+      <article class="brand-outline rounded-brand-lg bg-gray-50 p-7">
+        <h3 class="font-display text-xl font-semibold tracking-normal">No hacer</h3>
+        <ul class="mt-4 space-y-2 text-sm leading-6 text-gray-700">
+          {brandRules.dont.map((rule) => <li>✗ {rule}</li>)}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

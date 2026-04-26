@@ -1,0 +1,53 @@
+---
+import { contactCards, privacySections } from "@config";
+---
+
+<main class="bg-paper-warm">
+  <section class="border-b-[1.5px] border-ink bg-ink py-20 text-paper md:py-28">
+    <div class="container-shell">
+      <p class="mb-6 inline-flex rounded-full border border-paper/15 bg-paper/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.06em]">
+        Legal · Privacidad
+      </p>
+      <h1 class="max-w-4xl font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.9] tracking-normal">
+        Tus datos,<br /><span class="text-orange">sin letra chica.</span>
+      </h1>
+      <p class="mt-8 max-w-2xl text-lg leading-8 text-gray-300">
+        Esta política explica qué información recopilamos, cómo la usamos y cómo puedes pedir cambios o eliminación.
+      </p>
+      <p class="mt-6 text-sm font-semibold text-paper/70">Última actualización: 25 de abril de 2026</p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-28">
+    <div class="container-shell grid gap-10 lg:grid-cols-[0.75fr_1.25fr]">
+      <aside class="lg:sticky lg:top-28 lg:self-start">
+        <div class="brand-outline rounded-brand-lg bg-paper p-6">
+          <h2 class="font-display text-2xl font-semibold tracking-normal">Contacto de privacidad</h2>
+          <div class="mt-5 grid gap-3">
+            {
+              contactCards.map((card) => (
+                <a href={card.href} class="focus-ring rounded-brand-md bg-gray-50 p-4 transition hover:bg-orange hover:text-paper">
+                  <span class="block text-xs font-bold uppercase tracking-[0.08em] opacity-70">{card.label}</span>
+                  <span class="mt-1 block font-semibold">{card.value}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </aside>
+
+      <div class="space-y-5">
+        {
+          privacySections.map((section) => (
+            <article id={section.id} class="brand-outline scroll-mt-28 rounded-brand-lg bg-paper p-7 md:p-9">
+              <h2 class="font-display text-3xl font-semibold tracking-normal">{section.title}</h2>
+              <div class="mt-5 space-y-4 text-base leading-8 text-gray-700">
+                {section.body.map((paragraph) => <p>{paragraph}</p>)}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</main>

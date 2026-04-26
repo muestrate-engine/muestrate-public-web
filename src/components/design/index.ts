@@ -1,0 +1,10 @@
+export { default as AssetsSection } from "./assets_section/index.astro";
+export { default as BrandSection } from "./brand_section/index.astro";
+export { default as ColorSection } from "./color_section/index.astro";
+export { default as ComponentsSection } from "./components_section/index.astro";
+export { default as DesignFooter } from "./design_footer/index.astro";
+export { default as DesignHeader } from "./design_header/index.astro";
+export { default as DesignHero } from "./design_hero/index.astro";
+export { default as TypographySection } from "./typography_section/index.astro";
+export { default as VoiceSection } from "./voice_section/index.astro";
+export * from "./deliverables";

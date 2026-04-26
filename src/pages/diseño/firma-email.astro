@@ -1,0 +1,23 @@
+---
+import { BaseLayout } from "@layouts";
+import {
+  DeliverablePageHeader,
+  DesignFooter,
+  DesignHeader,
+  EmailSignatureShowcase,
+} from "@components";
+import { PAGE_META, organizationSchema } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.designEmailSignature} structuredData={organizationSchema}>
+  <DesignHeader />
+  <main>
+    <DeliverablePageHeader
+      label="Entregable 03"
+      title="Firma de email"
+      description="Tres variantes para distintos contextos: horizontal para uso diario, card oscura para propuestas y ventas, y minimal para respuestas rápidas. Compatible con Gmail, Outlook y Apple Mail."
+    />
+    <EmailSignatureShowcase />
+  </main>
+  <DesignFooter />
+</BaseLayout>

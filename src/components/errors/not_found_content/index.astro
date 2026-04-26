@@ -1,0 +1,29 @@
+---
+import { ROUTES, WHATSAPP_URL } from "@config";
+import { ButtonLink } from "@components/shared";
+---
+
+<main class="bg-ink text-paper">
+  <section class="relative grid min-h-[calc(100vh-72px)] place-items-center overflow-hidden py-20">
+    <div class="pointer-events-none absolute -right-20 top-8 font-display text-[24rem] font-bold leading-none text-orange/10" aria-hidden="true">
+      404
+    </div>
+    <div class="container-shell relative text-center">
+      <p class="mx-auto mb-6 inline-flex rounded-full border border-paper/15 bg-paper/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em]">
+        Error 404
+      </p>
+      <h1 class="mx-auto max-w-4xl font-display text-[clamp(4rem,12vw,9rem)] font-semibold leading-[0.9] tracking-normal">
+        Esta página<br /><span class="text-orange">no se muestra.</span>
+      </h1>
+      <p class="mx-auto mt-8 max-w-2xl text-lg leading-8 text-gray-300">
+        El enlace puede haber cambiado, estar mal escrito o haberse quedado en modo invisible. Volvamos a donde sí pasa algo.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <ButtonLink href={ROUTES.home} size="lg">Volver al inicio</ButtonLink>
+        <ButtonLink href={WHATSAPP_URL} variant="outlineLight" size="lg" target="_blank" rel="noreferrer">
+          Hablar por WhatsApp
+        </ButtonLink>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muestrate.pe/sitemap-index.xml

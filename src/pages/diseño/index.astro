@@ -1,0 +1,29 @@
+---
+import { BaseLayout } from "@layouts";
+import {
+  AssetsSection,
+  BrandSection,
+  ColorSection,
+  ComponentsSection,
+  DesignFooter,
+  DesignHeader,
+  DesignHero,
+  TypographySection,
+  VoiceSection,
+} from "@components";
+import { PAGE_META, organizationSchema } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.design} structuredData={organizationSchema}>
+  <DesignHeader />
+  <main>
+    <DesignHero />
+    <BrandSection />
+    <ColorSection />
+    <TypographySection />
+    <ComponentsSection />
+    <VoiceSection />
+    <AssetsSection />
+  </main>
+  <DesignFooter />
+</BaseLayout>

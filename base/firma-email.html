@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Muéstrate — Firma de email</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { background: var(--m-paper-warm); min-height: 100vh; padding: 60px 24px; }
+  .page { max-width: 1000px; margin: 0 auto; }
+  h1 { font-family: var(--m-font-display); font-weight:600; font-size:44px; letter-spacing:-0.02em; margin:0 0 8px; }
+  .sub { color: var(--m-gray-700); margin: 0 0 48px; font-size: 16px; max-width: 680px; }
+  .label { font-family: var(--m-font-display); font-weight:600; font-size:13px; color:var(--m-orange); letter-spacing:0.1em; margin-bottom:12px; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; text-decoration:none; color: var(--m-ink); font-weight:700; margin-bottom:24px; font-size:14px; }
+
+  .variant-title { display:flex; align-items:center; gap:12px; margin: 48px 0 20px; }
+  .variant-title h2 { font-family: var(--m-font-display); font-weight:600; font-size: 22px; margin:0; letter-spacing:-0.01em; }
+  .variant-title .dot { width:10px; height:10px; border-radius:50%; background: var(--m-orange); }
+
+  /* Email window mock */
+  .email-mock {
+    background: var(--m-paper); border-radius: var(--m-radius-lg);
+    border: 1.5px solid var(--m-ink); overflow: hidden;
+    box-shadow: var(--m-shadow-lg);
+  }
+  .email-mock .mock-head {
+    padding: 14px 20px; background: var(--m-gray-100);
+    border-bottom: 1px solid var(--m-gray-200);
+    font-size: 13px; color: var(--m-gray-700);
+    display:flex; justify-content: space-between; align-items: center;
+  }
+  .email-mock .mock-head .dots { display:flex; gap:6px; }
+  .email-mock .mock-head .dots span { width:10px; height: 10px; border-radius: 50%; background: var(--m-gray-300); }
+  .email-mock .mock-body {
+    padding: 32px; font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px; color: var(--m-ink); line-height: 1.6;
+  }
+  .email-mock .msg { max-width: 560px; margin-bottom: 28px; }
+  .email-mock .msg p { margin: 0 0 12px; }
+
+  /* === SIGNATURE VARIANT A: horizontal === */
+  .sig-a {
+    display: table; border-collapse: collapse; font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #0E0E0E;
+  }
+  .sig-a-row { display: table-row; }
+  .sig-a-logo {
+    display: table-cell; vertical-align: middle; padding-right: 20px;
+    border-right: 2px solid #FF5B1F;
+  }
+  .sig-a-logo .badge {
+    width: 72px; height: 72px; border-radius: 14px;
+    background: #0E0E0E; color: #FFFFFF;
+    display: flex; align-items: center; justify-content: center;
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 700; font-size: 44px;
+    line-height: 1;
+  }
+  .sig-a-content {
+    display: table-cell; vertical-align: middle; padding-left: 20px;
+  }
+  .sig-a .name {
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 600;
+    font-size: 18px; color: #0E0E0E; line-height: 1.1; margin: 0 0 2px;
+    letter-spacing: -0.01em;
+  }
+  .sig-a .role {
+    font-size: 12px; color: #7A7A7A; font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 10px;
+  }
+  .sig-a .contact-row {
+    font-size: 13px; color: #3D3D3D; line-height: 1.7;
+  }
+  .sig-a .contact-row a {
+    color: #3D3D3D; text-decoration: none;
+  }
+  .sig-a .contact-row a:hover { color: #FF5B1F; }
+  .sig-a .sep { color: #CFCFCF; margin: 0 8px; }
+  .sig-a .tagline {
+    margin-top: 10px; font-size: 12px; color: #FF5B1F;
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  /* === SIGNATURE VARIANT B: card === */
+  .sig-b-wrap { padding: 14px; }
+  .sig-b {
+    background: #0E0E0E; color: #FFFFFF;
+    border-radius: 14px; padding: 22px 24px;
+    max-width: 460px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: table; width: 100%;
+  }
+  .sig-b-row { display: table-row; }
+  .sig-b-left { display: table-cell; vertical-align: top; padding-right: 20px; }
+  .sig-b-right { display: table-cell; vertical-align: top; text-align: right; }
+  .sig-b .name {
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 600;
+    font-size: 20px; line-height: 1.1; margin: 0 0 2px;
+  }
+  .sig-b .role { font-size: 11px; color: #CFCFCF; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 14px; }
+  .sig-b .mini-logo {
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 700;
+    font-size: 22px; color: #FF5B1F; line-height: 1;
+  }
+  .sig-b .tag {
+    display: inline-block; background: #FF5B1F; color: #FFF;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 4px 8px; border-radius: 999px; margin-top: 6px;
+  }
+  .sig-b .contacts { font-size: 12px; line-height: 1.7; color: #E6E6E6; }
+  .sig-b .contacts a { color: #E6E6E6; text-decoration: none; }
+
+  /* === SIGNATURE VARIANT C: minimal === */
+  .sig-c {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #0E0E0E; font-size: 13px; line-height: 1.55;
+    border-left: 3px solid #FF5B1F; padding-left: 16px;
+  }
+  .sig-c .name {
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 600;
+    font-size: 17px; letter-spacing: -0.01em;
+  }
+  .sig-c .role { color: #7A7A7A; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+  .sig-c .brand-line {
+    font-family: Fredoka, system-ui, sans-serif; font-weight: 600;
+    font-size: 15px; margin-top: 8px;
+  }
+  .sig-c .brand-line .spark { color: #FF5B1F; }
+  .sig-c a { color: #0E0E0E; text-decoration: none; border-bottom: 1px dotted #CFCFCF; }
+  .sig-c .pipe { color: #CFCFCF; margin: 0 6px; }
+
+  /* Code preview block */
+  .code {
+    margin-top: 16px;
+    background: var(--m-ink); color: #E6E6E6;
+    border-radius: var(--m-radius-md); padding: 18px;
+    font-family: 'SF Mono', Consolas, monospace;
+    font-size: 12px; line-height: 1.55;
+    overflow-x: auto; white-space: pre-wrap; word-break: break-word;
+  }
+  .code .k { color: #FFB089; }
+  details { margin-top: 12px; }
+  summary { cursor: pointer; font-size: 13px; font-weight: 700; color: var(--m-gray-700); }
+
+  .usage-note {
+    background: var(--m-ink); color: var(--m-paper);
+    padding: 20px 24px; border-radius: var(--m-radius-lg);
+    margin-top: 40px; font-size: 14px; line-height: 1.55;
+  }
+  .usage-note strong { font-family: var(--m-font-display); font-weight: 600; font-size: 16px; display:block; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="back-link">← Volver al sistema</a>
+  <div class="label">ENTREGABLE 03</div>
+  <h1>Firma de email</h1>
+  <p class="sub">Tres variantes para distintos contextos: horizontal para uso diario, card oscura para propuestas y ventas, y minimal para respuestas rápidas. Compatible con Gmail, Outlook y Apple Mail.</p>
+
+  <!-- ========= A ========= -->
+  <div class="variant-title"><span class="dot"></span><h2>Horizontal — uso diario</h2></div>
+
+  <div class="email-mock">
+    <div class="mock-head">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <span>Re: propuesta web · muestrate.pe</span>
+      <span></span>
+    </div>
+    <div class="mock-body">
+      <div class="msg">
+        <p>Hola Rosa,</p>
+        <p>Adjunto la propuesta para la web de tu barbería. Cualquier consulta me avisas por acá o por WhatsApp.</p>
+        <p>Abrazo,</p>
+      </div>
+
+      <div class="sig-a">
+        <div class="sig-a-row">
+          <div class="sig-a-logo">
+            <div class="badge">m✦</div>
+          </div>
+          <div class="sig-a-content">
+            <div class="name">Luis Ramírez</div>
+            <div class="role">Fundador · Muéstrate</div>
+            <div class="contact-row">
+              <a href="tel:+51999888777">+51 999 888 777</a>
+              <span class="sep">·</span>
+              <a href="/cdn-cgi/l/email-protection#7c1009150f3c1109190f080e1d0819520c19"><span class="__cf_email__" data-cfemail="533f263a20133e26362027213227367d2336">[email&#160;protected]</span></a>
+              <span class="sep">·</span>
+              <a href="https://muestrate.pe">muestrate.pe</a>
+            </div>
+            <div class="tagline">Tu negocio online en 48h. Así de simple.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <details>
+    <summary>Ver HTML para pegar en Gmail / Outlook →</summary>
+    <div class="code">&lt;table cellpadding="0" cellspacing="0" border="0" style="font-family:Helvetica,Arial,sans-serif;color:#0E0E0E;"&gt;
+  &lt;tr&gt;
+    &lt;td style="padding-right:20px;border-right:2px solid <span class="k">#FF5B1F</span>;vertical-align:middle;"&gt;
+      &lt;div style="width:72px;height:72px;border-radius:14px;background:#0E0E0E;color:#FFF;
+           font-family:Fredoka,sans-serif;font-weight:700;font-size:44px;
+           text-align:center;line-height:72px;"&gt;m✦&lt;/div&gt;
+    &lt;/td&gt;
+    &lt;td style="padding-left:20px;vertical-align:middle;"&gt;
+      &lt;div style="font-family:Fredoka,sans-serif;font-weight:600;font-size:18px;"&gt;Luis Ramírez&lt;/div&gt;
+      &lt;div style="font-size:12px;color:#7A7A7A;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;"&gt;Fundador · Muéstrate&lt;/div&gt;
+      &lt;div style="font-size:13px;color:#3D3D3D;margin-top:10px;"&gt;
+        &lt;a href="tel:+51999888777" style="color:#3D3D3D;text-decoration:none;"&gt;+51 999 888 777&lt;/a&gt; ·
+        &lt;a href="mailto:<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad6cfd3c9fad7cfdfc9cec8dbcedf94cadf">[email&#160;protected]</a>" style="color:#3D3D3D;text-decoration:none;"&gt;<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aec2dbc7ddeec3dbcbdddadccfdacb80decb">[email&#160;protected]</a>&lt;/a&gt; ·
+        &lt;a href="https://muestrate.pe" style="color:#3D3D3D;text-decoration:none;"&gt;muestrate.pe&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div style="margin-top:8px;font-size:12px;color:<span class="k">#FF5B1F</span>;font-family:Fredoka;"&gt;
+        Tu negocio online en 48h. Así de simple.
+      &lt;/div&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</div>
+  </details>
+
+  <!-- ========= B ========= -->
+  <div class="variant-title"><span class="dot"></span><h2>Card oscura — propuestas & ventas</h2></div>
+
+  <div class="email-mock">
+    <div class="mock-head">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <span>Propuesta web — Ceviches del Puerto</span>
+      <span></span>
+    </div>
+    <div class="mock-body">
+      <div class="msg">
+        <p>Jhon, qué tal.</p>
+        <p>Te mando la propuesta de la web + el link de pago. Tu página queda lista el viernes.</p>
+      </div>
+
+      <div class="sig-b-wrap">
+        <div class="sig-b">
+          <div class="sig-b-row">
+            <div class="sig-b-left">
+              <div class="name">Luis Ramírez</div>
+              <div class="role">Fundador · Estrategia</div>
+              <div class="contacts">
+                <div>✉ <a href="/cdn-cgi/l/email-protection#f8948d918bb8958d9d8b8c8a998c9dd6889d"><span class="__cf_email__" data-cfemail="2549504c56654850405651574451400b5540">[email&#160;protected]</span></a></div>
+                <div>📱 <a href="tel:+51999888777">+51 999 888 777</a></div>
+                <div>🌐 <a href="https://muestrate.pe">muestrate.pe</a></div>
+              </div>
+            </div>
+            <div class="sig-b-right">
+              <div class="mini-logo">muéstrate<span style="color:#FF5B1F;">✦</span></div>
+              <div class="tag">● 48H</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= C ========= -->
+  <div class="variant-title"><span class="dot"></span><h2>Minimal — respuestas rápidas</h2></div>
+
+  <div class="email-mock">
+    <div class="mock-head">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <span>Re: ¿Hasta cuándo la promo?</span>
+      <span></span>
+    </div>
+    <div class="mock-body">
+      <div class="msg">
+        <p>Hasta el 30 de abril. Si quieres te bloqueo la fecha hoy mismo 👊</p>
+      </div>
+
+      <div class="sig-c">
+        <div class="name">Luis Ramírez</div>
+        <div class="role">Fundador · Muéstrate</div>
+        <div>
+          <a href="tel:+51999888777">+51 999 888 777</a>
+          <span class="pipe">|</span>
+          <a href="/cdn-cgi/l/email-protection#bed2cbd7cdfed3cbdbcdcaccdfcadb90cedb"><span class="__cf_email__" data-cfemail="6c0019051f2c0119091f181e0d1809421c09">[email&#160;protected]</span></a>
+        </div>
+        <div class="brand-line">muéstrate<span class="spark">✦</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <strong>Cómo instalarla</strong>
+    Copia el HTML de la variante que quieras → pégalo en <em>Configuración → Firma</em> en Gmail, Outlook o Apple Mail. Las tres versiones usan solo tipografía web-safe con <em>fallback</em> a Fredoka cuando está disponible, y colores hex inline para máxima compatibilidad.
+  </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muéstrate · Agencia de marketing para MYPEs peruanas</title>
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body {
+        background: var(--m-paper-warm);
+        color: var(--m-ink);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ============================================================
+     0 — HEADER
+     ============================================================ */
+      header.site {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: var(--m-ink);
+        color: var(--m-paper);
+        border-bottom: 1.5px solid var(--m-ink);
+      }
+      header.site .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+      }
+      header.site .logo {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+      }
+      header.site .logo .spark {
+        color: var(--m-orange);
+      }
+      header.site nav {
+        display: flex;
+        gap: 28px;
+      }
+      header.site nav a {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--m-paper);
+        opacity: 0.8;
+        transition: opacity 0.15s;
+      }
+      header.site nav a:hover {
+        opacity: 1;
+        color: var(--m-orange);
+      }
+      header.site .cta-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--m-orange);
+        color: var(--m-paper);
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 14px;
+        border: 1.5px solid var(--m-orange);
+        transition: transform 0.12s ease;
+      }
+      header.site .cta-wa:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0 var(--m-orange-600);
+      }
+      header.site .cta-wa svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* ============================================================
+     1 — HERO
+     ============================================================ */
+      .hero {
+        position: relative;
+        background: var(--m-ink);
+        color: var(--m-paper);
+        padding: 80px 0 120px;
+        overflow: hidden;
+      }
+      .hero .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--m-paper);
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        margin-bottom: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .hero .eyebrow .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--m-orange);
+        border-radius: 50%;
+      }
+      .hero h1 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: clamp(56px, 10vw, 140px);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        margin: 0 0 32px;
+        max-width: 1000px;
+      }
+      .hero h1 .accent {
+        color: var(--m-orange);
+      }
+      .hero h1 .underline {
+        position: relative;
+        display: inline-block;
+      }
+      .hero h1 .underline::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0.05em;
+        height: 0.18em;
+        background: var(--m-orange);
+        z-index: -1;
+        border-radius: 4px;
+      }
+      .hero p.sub {
+        font-size: clamp(18px, 1.8vw, 22px);
+        line-height: 1.5;
+        max-width: 640px;
+        color: var(--m-gray-300);
+        margin: 0 0 40px;
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .hero .btn-primary {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        padding: 18px 30px;
+        border-radius: 999px;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 18px;
+        border: 1.5px solid var(--m-orange);
+        transition: transform 0.12s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .hero .btn-primary:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0 var(--m-paper);
+      }
+      .hero .btn-ghost {
+        background: transparent;
+        color: var(--m-paper);
+        padding: 18px 30px;
+        border-radius: 999px;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 18px;
+        border: 1.5px solid var(--m-paper);
+        transition: all 0.12s ease;
+      }
+      .hero .btn-ghost:hover {
+        background: var(--m-paper);
+        color: var(--m-ink);
+      }
+
+      /* Sparkle decor */
+      .hero .sparkle-1 {
+        position: absolute;
+        right: -60px;
+        top: 80px;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 360px;
+        color: var(--m-orange);
+        opacity: 0.14;
+        line-height: 1;
+        transform: rotate(12deg);
+      }
+      .hero .sparkle-2 {
+        position: absolute;
+        left: 20%;
+        bottom: -30px;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 120px;
+        color: var(--m-paper);
+        opacity: 0.08;
+        transform: rotate(-8deg);
+      }
+
+      .hero-stats {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .hero-stats .stat .k {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+      .hero-stats .stat .k .u {
+        color: var(--m-orange);
+      }
+      .hero-stats .stat .l {
+        font-size: 13px;
+        color: var(--m-gray-300);
+        margin-top: 8px;
+      }
+
+      /* Marquee */
+      .marquee {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        padding: 18px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        border-top: 1.5px solid var(--m-ink);
+        border-bottom: 1.5px solid var(--m-ink);
+      }
+      .marquee .track {
+        display: inline-flex;
+        gap: 40px;
+        animation: scroll 30s linear infinite;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+      }
+      .marquee .track span {
+        display: inline-flex;
+        align-items: center;
+        gap: 40px;
+      }
+      .marquee .dot {
+        width: 10px;
+        height: 10px;
+        background: var(--m-ink);
+        border-radius: 50%;
+        display: inline-block;
+      }
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ============================================================
+     COMMON section title
+     ============================================================ */
+      section.block {
+        padding: 120px 0;
+      }
+      .sec-head {
+        margin-bottom: 64px;
+        max-width: 880px;
+      }
+      .sec-num {
+        display: inline-block;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--m-orange);
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+      .sec-head h2 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: clamp(44px, 6vw, 80px);
+        line-height: 0.95;
+        letter-spacing: -0.035em;
+        margin: 0 0 20px;
+      }
+      .sec-head h2 .hl {
+        color: var(--m-orange);
+      }
+      .sec-head p {
+        font-size: 20px;
+        line-height: 1.5;
+        color: var(--m-gray-700);
+        margin: 0;
+        max-width: 680px;
+      }
+
+      /* ============================================================
+     2 — ACERCA DE
+     ============================================================ */
+      .about {
+        background: var(--m-paper-warm);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .about-copy .pill {
+        display: inline-block;
+        background: var(--m-ink);
+        color: var(--m-paper);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        margin-bottom: 20px;
+      }
+      .about-copy h3 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: clamp(36px, 5vw, 56px);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin: 0 0 24px;
+      }
+      .about-copy h3 .hl {
+        color: var(--m-orange);
+      }
+      .about-copy p {
+        font-size: 18px;
+        line-height: 1.55;
+        color: var(--m-gray-700);
+        margin: 0 0 18px;
+      }
+      .about-visual {
+        position: relative;
+        aspect-ratio: 1/1;
+        background: var(--m-ink);
+        border-radius: var(--m-radius-xl);
+        padding: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .about-visual .huge-m {
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: clamp(260px, 40vw, 520px);
+        color: var(--m-orange);
+        line-height: 0.8;
+        letter-spacing: -0.08em;
+      }
+      .about-visual .mini-sparkle {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        font-family: var(--m-font-display);
+        font-size: 80px;
+        color: var(--m-paper);
+        line-height: 1;
+      }
+      .about-visual .badge-card {
+        position: absolute;
+        bottom: 32px;
+        left: 32px;
+        background: var(--m-paper);
+        color: var(--m-ink);
+        padding: 16px 20px;
+        border-radius: 14px;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: var(--m-shadow-md);
+      }
+      .about-visual .badge-card .num {
+        font-size: 28px;
+        color: var(--m-orange);
+        line-height: 1;
+      }
+
+      .values-row {
+        margin-top: 80px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .value {
+        background: var(--m-paper);
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        padding: 28px;
+        transition: transform 0.2s ease;
+      }
+      .value:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0 var(--m-ink);
+      }
+      .value .emoji {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--m-orange);
+        color: var(--m-paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+      .value h4 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0 0 8px;
+        letter-spacing: -0.01em;
+      }
+      .value p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--m-gray-700);
+      }
+
+      /* ============================================================
+     3 — SERVICIOS
+     ============================================================ */
+      .services {
+        background: var(--m-ink);
+        color: var(--m-paper);
+      }
+      .services .sec-head p {
+        color: var(--m-gray-300);
+      }
+
+      .svc-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+      }
+      .svc {
+        border-radius: var(--m-radius-lg);
+        padding: 36px;
+        border: 1.5px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.04);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 320px;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .svc:hover {
+        border-color: var(--m-orange);
+        background: rgba(255, 91, 31, 0.08);
+      }
+      .svc .sv-num {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--m-orange);
+        letter-spacing: 0.1em;
+      }
+      .svc h4 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin: 16px 0 12px;
+      }
+      .svc p {
+        font-size: 15px;
+        color: var(--m-gray-300);
+        line-height: 1.5;
+        margin: 0 0 24px;
+      }
+      .svc .arrow {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--m-paper);
+        color: var(--m-ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .svc.feature {
+        grid-row: 1 / 3;
+        background: var(--m-orange);
+        border-color: var(--m-orange);
+        min-height: 660px;
+      }
+      .svc.feature:hover {
+        background: var(--m-orange-600);
+        border-color: var(--m-orange-600);
+      }
+      .svc.feature .sv-num {
+        color: var(--m-paper);
+        opacity: 0.8;
+      }
+      .svc.feature h4 {
+        font-size: 48px;
+      }
+      .svc.feature p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 17px;
+      }
+      .svc.feature .price-pill {
+        display: inline-block;
+        background: var(--m-ink);
+        color: var(--m-paper);
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-family: var(--m-font-display);
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 12px;
+      }
+      .svc .tag-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .svc .tag-row span {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--m-paper);
+      }
+      .svc.feature .tag-row span {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      /* ============================================================
+     4 — NUESTRO TRABAJO
+     ============================================================ */
+      .work {
+        background: var(--m-paper-warm);
+      }
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+      }
+      .case {
+        border-radius: var(--m-radius-lg);
+        overflow: hidden;
+        position: relative;
+        border: 1.5px solid var(--m-ink);
+        aspect-ratio: 4/5;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s ease;
+        cursor: pointer;
+      }
+      .case:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 6px 6px 0 var(--m-ink);
+      }
+      .case .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .case .cat {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.12);
+      }
+      .case h4 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 26px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin: 0 0 8px;
+      }
+      .case .meta {
+        font-size: 13px;
+        opacity: 0.8;
+      }
+
+      /* mock images = color blocks with bold type */
+      .case .visual {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        padding: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 140px;
+        line-height: 0.8;
+        letter-spacing: -0.04em;
+        opacity: 0.1;
+        overflow: hidden;
+      }
+
+      .c1 {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        grid-column: span 3;
+        aspect-ratio: 8/5;
+      }
+      .c2 {
+        background: var(--m-ink);
+        color: var(--m-paper);
+        grid-column: span 3;
+        aspect-ratio: 8/5;
+      }
+      .c3 {
+        background: var(--m-sun);
+        color: var(--m-ink);
+        grid-column: span 2;
+      }
+      .c4 {
+        background: var(--m-paper);
+        color: var(--m-ink);
+        grid-column: span 2;
+      }
+      .c5 {
+        background: var(--m-lime);
+        color: var(--m-ink);
+        grid-column: span 2;
+      }
+
+      /* ============================================================
+     5 — EQUIPO
+     ============================================================ */
+      .team {
+        background: var(--m-paper);
+        border-top: 1.5px solid var(--m-ink);
+        border-bottom: 1.5px solid var(--m-ink);
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .person {
+        background: var(--m-paper-warm);
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        overflow: hidden;
+        transition: transform 0.2s ease;
+      }
+      .person:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0 var(--m-ink);
+      }
+      .person .avatar {
+        aspect-ratio: 1/1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 120px;
+        color: var(--m-paper);
+        letter-spacing: -0.04em;
+        border-bottom: 1.5px solid var(--m-ink);
+        position: relative;
+      }
+      .person .spark {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 40px;
+        color: var(--m-paper);
+      }
+      .person.p1 .avatar {
+        background: var(--m-orange);
+      }
+      .person.p2 .avatar {
+        background: var(--m-ink);
+      }
+      .person.p3 .avatar {
+        background: var(--m-sun);
+        color: var(--m-ink);
+      }
+      .person.p3 .spark {
+        color: var(--m-ink);
+      }
+      .person.p4 .avatar {
+        background: var(--m-sky);
+      }
+
+      .person .info {
+        padding: 20px 22px;
+      }
+      .person .info h5 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0 0 2px;
+        letter-spacing: -0.01em;
+      }
+      .person .info .role {
+        font-size: 13px;
+        color: var(--m-orange);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .person .info .bio {
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--m-gray-700);
+        margin: 0;
+      }
+      .person .info .socials {
+        margin-top: 14px;
+        display: flex;
+        gap: 10px;
+      }
+      .person .info .socials a {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--m-ink);
+        color: var(--m-paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      /* ============================================================
+     6 — TESTIMONIOS
+     ============================================================ */
+      .tests {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        border-bottom: 1.5px solid var(--m-ink);
+      }
+      .tests .sec-head p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .tests-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 20px;
+      }
+      .test {
+        background: var(--m-paper);
+        color: var(--m-ink);
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 5px 5px 0 var(--m-ink);
+      }
+      .test.dark {
+        background: var(--m-ink);
+        color: var(--m-paper);
+        border-color: var(--m-paper);
+        box-shadow: 5px 5px 0 var(--m-paper);
+      }
+      .test .quote-mark {
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 0.6;
+        color: var(--m-orange);
+      }
+      .test .stars {
+        color: var(--m-orange);
+        font-size: 18px;
+        letter-spacing: 2px;
+        margin: 12px 0 16px;
+      }
+      .test blockquote {
+        font-family: var(--m-font-display);
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+        margin: 0 0 24px;
+      }
+      .test.feature blockquote {
+        font-size: 32px;
+      }
+      .test .who {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: auto;
+      }
+      .test .who .av {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--m-orange);
+        color: var(--m-paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 18px;
+      }
+      .test.dark .who .av {
+        background: var(--m-orange);
+        color: var(--m-paper);
+      }
+      .test .who .name {
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .test .who .biz {
+        font-size: 12px;
+        opacity: 0.7;
+      }
+
+      /* ============================================================
+     7 — CTA
+     ============================================================ */
+      .cta-block {
+        background: var(--m-ink);
+        color: var(--m-paper);
+        padding: 140px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-block .big {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: clamp(64px, 12vw, 180px);
+        line-height: 0.88;
+        letter-spacing: -0.045em;
+        margin: 0 0 48px;
+      }
+      .cta-block .big .hl {
+        color: var(--m-orange);
+      }
+      .cta-block .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+        padding-top: 32px;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.15);
+      }
+      .cta-block .row .note {
+        font-size: 16px;
+        color: var(--m-gray-300);
+        max-width: 440px;
+        line-height: 1.5;
+      }
+      .cta-block .row .btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .cta-block .btn-primary {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        padding: 20px 36px;
+        border-radius: 999px;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 20px;
+        border: 1.5px solid var(--m-orange);
+        transition: transform 0.12s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .cta-block .btn-primary:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 5px 5px 0 var(--m-paper);
+      }
+      .cta-block .btn-wa {
+        background: transparent;
+        color: var(--m-paper);
+        padding: 20px 28px;
+        border-radius: 999px;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 20px;
+        border: 1.5px solid var(--m-paper);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.12s ease;
+      }
+      .cta-block .btn-wa:hover {
+        background: var(--m-paper);
+        color: var(--m-ink);
+      }
+      .cta-block .spark-bg {
+        position: absolute;
+        right: -100px;
+        top: -80px;
+        font-size: 520px;
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        color: var(--m-orange);
+        opacity: 0.08;
+        line-height: 1;
+        transform: rotate(18deg);
+      }
+
+      /* ============================================================
+     8 — FOOTER
+     ============================================================ */
+      footer.site {
+        background: var(--m-paper);
+        color: var(--m-ink);
+        border-top: 1.5px solid var(--m-ink);
+        padding: 80px 0 32px;
+      }
+      footer.site .top-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1.5px solid var(--m-ink);
+      }
+      footer.site .brand-col h5 {
+        font-family: var(--m-font-display);
+        font-weight: 700;
+        font-size: 32px;
+        letter-spacing: -0.02em;
+        margin: 0 0 12px;
+      }
+      footer.site .brand-col h5 .spark {
+        color: var(--m-orange);
+      }
+      footer.site .brand-col p {
+        font-size: 14px;
+        color: var(--m-gray-700);
+        line-height: 1.5;
+        margin: 0 0 20px;
+        max-width: 360px;
+      }
+      footer.site .socials-row {
+        display: flex;
+        gap: 10px;
+      }
+      footer.site .socials-row a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid var(--m-ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        transition: all 0.12s ease;
+      }
+      footer.site .socials-row a:hover {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        border-color: var(--m-orange);
+      }
+      footer.site .col h6 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--m-orange);
+        letter-spacing: 0.08em;
+        margin: 0 0 18px;
+        text-transform: uppercase;
+      }
+      footer.site .col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      footer.site .col ul li {
+        margin-bottom: 10px;
+      }
+      footer.site .col ul a {
+        font-size: 14px;
+        color: var(--m-gray-700);
+      }
+      footer.site .col ul a:hover {
+        color: var(--m-ink);
+      }
+      footer.site .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding-top: 32px;
+        font-size: 13px;
+        color: var(--m-gray-500);
+        flex-wrap: wrap;
+      }
+      footer.site .bottom .legal a {
+        margin-left: 20px;
+      }
+
+      /* ============ Responsive ============ */
+      @media (max-width: 960px) {
+        header.site nav {
+          display: none;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .values-row {
+          grid-template-columns: 1fr 1fr;
+        }
+        .svc-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .svc.feature {
+          grid-row: auto;
+          grid-column: 1 / -1;
+          min-height: 400px;
+        }
+        .work-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .c1,
+        .c2 {
+          grid-column: span 2;
+        }
+        .c3,
+        .c4,
+        .c5 {
+          grid-column: span 1;
+        }
+        .team-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .tests-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        footer.site .top-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .values-row,
+        .svc-grid,
+        .team-grid,
+        .work-grid,
+        footer.site .top-grid {
+          grid-template-columns: 1fr;
+        }
+        .c1,
+        .c2,
+        .c3,
+        .c4,
+        .c5 {
+          grid-column: span 1;
+          aspect-ratio: 4/5;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== 0 · HEADER ========== -->
+    <header class="site">
+      <div class="wrap row">
+        <a class="logo" href="#">muéstrate<span class="spark">✦</span></a>
+        <nav>
+          <a href="#acerca">Acerca</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#trabajo">Trabajo</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#testimonios">Testimonios</a>
+        </nav>
+        <a class="cta-wa" href="#cta">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.44 1.27 4.89L2 22l5.25-1.27A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.25 14.19c-.21.59-1.23 1.12-1.72 1.17-.44.04-.99.06-1.59-.1-.37-.12-.84-.27-1.44-.53-2.54-1.1-4.2-3.66-4.33-3.83-.12-.17-1.04-1.38-1.04-2.64 0-1.25.66-1.87.89-2.13.23-.25.5-.31.67-.31h.48c.15 0 .35-.06.55.42.21.49.71 1.69.77 1.81.06.12.1.27.02.43-.08.17-.12.27-.23.42-.12.15-.25.33-.36.44-.12.12-.24.25-.1.49s.6 1.02 1.3 1.64c.89.8 1.64 1.04 1.88 1.16.25.12.39.1.53-.06.15-.17.62-.73.78-.98.17-.25.33-.21.55-.12.23.08 1.44.68 1.69.8.25.12.41.18.47.28.06.1.06.59-.15 1.18z"
+            />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </header>
+
+    <!-- ========== 1 · HERO ========== -->
+    <section class="hero">
+      <div class="sparkle-1">✦</div>
+      <div class="sparkle-2">✦</div>
+      <div class="wrap">
+        <span class="eyebrow"
+          ><span class="dot"></span> AGENCIA DE MARKETING · LIMA, PERÚ</span
+        >
+        <h1>
+          Si no te <span class="accent">muestras</span>,<br />no te
+          <span class="underline">compran.</span>
+        </h1>
+        <p class="sub">
+          Hacemos webs, marca y campañas para MYPEs peruanas que están cansadas
+          de pasar desapercibidas. Entregamos rápido, hablamos claro, y cobramos
+          justo.
+        </p>
+        <div class="cta-row">
+          <a href="#cta" class="btn-primary">Quiero mi web en 48h →</a>
+          <a href="#trabajo" class="btn-ghost">Ver nuestro trabajo</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="k">120<span class="u">+</span></div>
+            <div class="l">Negocios peruanos mostrados</div>
+          </div>
+          <div class="stat">
+            <div class="k">48<span class="u">h</span></div>
+            <div class="l">Entrega promedio de una web</div>
+          </div>
+          <div class="stat">
+            <div class="k">S/<span class="u">250</span></div>
+            <div class="l">Desde — plan Empieza</div>
+          </div>
+          <div class="stat">
+            <div class="k">4.9<span class="u">/5</span></div>
+            <div class="l">Promedio en Google Reviews</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee">
+      <div class="track">
+        <span
+          >● BARBERÍAS ● RESTAURANTES ● DOCTORES ● ABOGADOS ● PSICÓLOGOS ●
+          TIENDAS ● SPAS ● TALLERES ● MYPES ●</span
+        >
+        <span
+          >● BARBERÍAS ● RESTAURANTES ● DOCTORES ● ABOGADOS ● PSICÓLOGOS ●
+          TIENDAS ● SPAS ● TALLERES ● MYPES ●</span
+        >
+      </div>
+    </div>
+
+    <!-- ========== 2 · ACERCA DE ========== -->
+    <section class="block about" id="acerca">
+      <div class="wrap">
+        <div class="sec-num">02 / ACERCA DE</div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <span class="pill">● HECHO EN PERÚ</span>
+            <h3>
+              Somos una agencia <span class="hl">pe,</span> pero en serio.
+            </h3>
+            <p>
+              Nacimos para los negocios que ya funcionan — que tienen clientes,
+              recetas, horarios, todo — pero que no aparecen en Google cuando
+              alguien los busca. Ese vacío es dinero que se escapa.
+            </p>
+            <p>
+              No somos una agencia fancy de Miraflores con 20 reuniones antes de
+              empezar. Somos un equipo chico, rápido, que conoce al emprendedor
+              peruano porque nosotros también empezamos así.
+            </p>
+            <p>
+              <strong>Entregas rápido. Precios claros. Sin letra chica.</strong>
+            </p>
+          </div>
+          <div class="about-visual">
+            <div class="mini-sparkle">✦</div>
+            <div class="huge-m">m</div>
+            <div class="badge-card">
+              <span class="num">+120</span><span>negocios mostrados</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="values-row">
+          <div class="value">
+            <div class="emoji">⚡</div>
+            <h4>Rápido de verdad</h4>
+            <p>Tu web lista en 48 horas. Sin "te llamo la próxima semana".</p>
+          </div>
+          <div class="value">
+            <div class="emoji">S/</div>
+            <h4>Precios fijos</h4>
+            <p>
+              Pagas lo que te dijimos. Nada de "ah, pero eso no estaba
+              incluido".
+            </p>
+          </div>
+          <div class="value">
+            <div class="emoji">🇵🇪</div>
+            <h4>Para MYPEs</h4>
+            <p>
+              Conocemos tu realidad. Hablamos tu idioma. Sabemos qué vende acá.
+            </p>
+          </div>
+          <div class="value">
+            <div class="emoji">✦</div>
+            <h4>Con chispa</h4>
+            <p>
+              Tu web no va a ser una plantilla igual a la del vecino. Punto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · SERVICIOS ========== -->
+    <section class="block services" id="servicios">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-num">03 / NUESTROS SERVICIOS</div>
+          <h2>
+            Todo lo que<br />tu negocio <span class="hl">necesita</span> online.
+          </h2>
+          <p>
+            Webs, marca, redes, y campañas que traen clientes reales — no likes
+            vacíos.
+          </p>
+        </div>
+
+        <div class="svc-grid">
+          <!-- Feature card (spans 2 rows) -->
+          <div class="svc feature">
+            <div>
+              <div class="sv-num">★ PLAN ESTRELLA</div>
+              <h4>Web que sí vende.</h4>
+              <p>
+                Página profesional con todo lo que tu cliente necesita ver:
+                servicios, fotos, formulario, WhatsApp flotante, y Google Maps.
+                Lista en 48h.
+              </p>
+              <div class="tag-row">
+                <span>DOMINIO</span><span>HOSTING 1 AÑO</span
+                ><span>SEO BÁSICO</span><span>RESPONSIVE</span>
+              </div>
+            </div>
+            <div>
+              <span class="price-pill">desde S/ 250</span>
+              <div
+                style="
+                  margin-top: 20px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                "
+              >
+                <span
+                  style="
+                    font-family: var(--m-font-display);
+                    font-weight: 600;
+                    font-size: 18px;
+                  "
+                  >Empezar →</span
+                >
+                <div class="arrow">→</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small cards -->
+          <div class="svc">
+            <div>
+              <div class="sv-num">02</div>
+              <h4>Marca & Logo</h4>
+              <p>Logo, paleta y papelería que no parezca hecha en Paint.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc">
+            <div>
+              <div class="sv-num">03</div>
+              <h4>Redes sociales</h4>
+              <p>Posts y reels mensuales. Tono tuyo, no genérico.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc">
+            <div>
+              <div class="sv-num">04</div>
+              <h4>Google Ads</h4>
+              <p>Apareces cuando tu cliente ya está buscando.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc">
+            <div>
+              <div class="sv-num">05</div>
+              <h4>Fotografía</h4>
+              <p>Fotos de tu local/producto que dan ganas de comprar.</p>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · TRABAJO ========== -->
+    <section class="block work" id="trabajo">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-num">04 / NUESTRO TRABAJO</div>
+          <h2>Negocios que<br />ya se <span class="hl">muestran.</span></h2>
+          <p>
+            Una muestra de las MYPEs peruanas que pasaron de "invisibles" a
+            aparecer en la primera página de Google.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <!-- Big hero case 1 -->
+          <div class="case c1">
+            <div class="visual">CEVICHE</div>
+            <div class="top">
+              <span class="cat">RESTAURANTE · WEB + REDES</span>
+            </div>
+            <div>
+              <h4>Ceviches del Puerto</h4>
+              <div class="meta">+230% de reservas en 3 meses · Callao</div>
+            </div>
+          </div>
+
+          <!-- Big hero case 2 -->
+          <div class="case c2">
+            <div class="visual" style="color: var(--m-orange)">CORTE</div>
+            <div class="top">
+              <span
+                class="cat"
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  color: var(--m-paper);
+                "
+                >BARBERÍA · WEB + GOOGLE</span
+              >
+            </div>
+            <div>
+              <h4>Barbería El Chalaco</h4>
+              <div class="meta">
+                1er lugar en "barbería callao" · +40 reservas/sem.
+              </div>
+            </div>
+          </div>
+
+          <!-- Small cases -->
+          <div class="case c3">
+            <div class="visual">SALUD</div>
+            <div class="top"><span class="cat">DRA. MÉNDEZ</span></div>
+            <div>
+              <h4>Clínica dental</h4>
+              <div class="meta">San Isidro</div>
+            </div>
+          </div>
+
+          <div class="case c4">
+            <div class="visual" style="color: var(--m-orange)">STUDIO</div>
+            <div class="top"><span class="cat">YOGA STUDIO</span></div>
+            <div>
+              <h4>Namaste Lima</h4>
+              <div class="meta">Barranco</div>
+            </div>
+          </div>
+
+          <div class="case c5">
+            <div class="visual">TALLER</div>
+            <div class="top"><span class="cat">MOTOS PEPE</span></div>
+            <div>
+              <h4>Taller mecánico</h4>
+              <div class="meta">Los Olivos</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center">
+          <a
+            href="#"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              font-family: var(--m-font-display);
+              font-weight: 600;
+              font-size: 18px;
+              color: var(--m-ink);
+              border-bottom: 2px solid var(--m-ink);
+              padding-bottom: 4px;
+            "
+            >Ver todos los casos →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · EQUIPO ========== -->
+    <section class="block team" id="equipo">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-num">05 / NUESTRO EQUIPO</div>
+          <h2>
+            Un equipo chico,<br />con <span class="hl">mano gruesa.</span>
+          </h2>
+          <p>
+            Cuatro personas que saben lo que hacen. Sin intermediarios, sin
+            juniors. Atiendes con el que diseña tu web.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="person p1">
+            <div class="avatar">L<span class="spark">✦</span></div>
+            <div class="info">
+              <h5>Luis Ramírez</h5>
+              <div class="role">Fundador · Estrategia</div>
+              <p class="bio">
+                El que atiende cuando llamas. 8 años haciendo digital para
+                MYPEs.
+              </p>
+              <div class="socials"><a href="#">in</a><a href="#">@</a></div>
+            </div>
+          </div>
+          <div class="person p2">
+            <div class="avatar">A<span class="spark">✦</span></div>
+            <div class="info">
+              <h5>Andrea Quispe</h5>
+              <div class="role">Directora Creativa</div>
+              <p class="bio">
+                Diseña todo lo que ves. Obsesionada con tipografía y el buen
+                kerning.
+              </p>
+              <div class="socials"><a href="#">in</a><a href="#">@</a></div>
+            </div>
+          </div>
+          <div class="person p3">
+            <div class="avatar">M<span class="spark">✦</span></div>
+            <div class="info">
+              <h5>Miguel Torres</h5>
+              <div class="role">Dev Full-Stack</div>
+              <p class="bio">
+                Arma tu web y que cargue rápido. No usa plantillas de WordPress.
+              </p>
+              <div class="socials"><a href="#">in</a><a href="#">@</a></div>
+            </div>
+          </div>
+          <div class="person p4">
+            <div class="avatar">V<span class="spark">✦</span></div>
+            <div class="info">
+              <h5>Valeria Flores</h5>
+              <div class="role">Social & Content</div>
+              <p class="bio">
+                La voz de la agencia en redes. Sabe qué vende en Perú.
+              </p>
+              <div class="socials"><a href="#">in</a><a href="#">@</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · TESTIMONIOS ========== -->
+    <section class="block tests" id="testimonios">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-num" style="color: var(--m-ink)">
+            06 / TESTIMONIOS
+          </div>
+          <h2>
+            Lo que dicen los<br />que ya se
+            <span style="color: var(--m-ink)">muestran.</span>
+          </h2>
+          <p>
+            Historias reales de MYPEs peruanas que nos contrataron y ahora
+            aparecen donde deben aparecer.
+          </p>
+        </div>
+
+        <div class="tests-grid">
+          <div class="test feature">
+            <div class="quote-mark">"</div>
+            <div>
+              <div class="stars">★★★★★</div>
+              <blockquote>
+                Me llegó mi primer cliente por Google a la semana de tener la
+                web. Literal pagué la inversión en 10 días.
+              </blockquote>
+            </div>
+            <div class="who">
+              <div class="av">R</div>
+              <div>
+                <div class="name">Rosa Mendoza</div>
+                <div class="biz">Barbería "El Chalaco" · Callao</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="test dark">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              Me lo hicieron en 2 días, literal. Mi cevichería ya aparece en
+              Google Maps arriba del todo.
+            </blockquote>
+            <div class="who">
+              <div class="av">J</div>
+              <div>
+                <div class="name">Jhon Torres</div>
+                <div class="biz">Ceviches del Puerto</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="test">
+            <div class="stars">★★★★★</div>
+            <blockquote>
+              Tenía una web horrible de hace 5 años. Ahora tengo una que sí me
+              representa.
+            </blockquote>
+            <div class="who">
+              <div class="av">C</div>
+              <div>
+                <div class="name">Dra. Carla Méndez</div>
+                <div class="biz">Clínica dental SI</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · CTA ========== -->
+    <section class="cta-block" id="cta">
+      <div class="spark-bg">✦</div>
+      <div class="wrap">
+        <h2 class="big">¿Empezamos<br /><span class="hl">el lunes?</span></h2>
+        <div class="row">
+          <p class="note">
+            Cuéntanos de tu negocio por WhatsApp. En 15 minutos te decimos qué
+            plan te conviene y cuándo tendrías tu web lista.
+          </p>
+          <div class="btns">
+            <a href="#" class="btn-primary">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12c0 1.77.46 3.44 1.27 4.89L2 22l5.25-1.27A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.25 14.19c-.21.59-1.23 1.12-1.72 1.17-.44.04-.99.06-1.59-.1-.37-.12-.84-.27-1.44-.53-2.54-1.1-4.2-3.66-4.33-3.83-.12-.17-1.04-1.38-1.04-2.64 0-1.25.66-1.87.89-2.13.23-.25.5-.31.67-.31h.48c.15 0 .35-.06.55.42.21.49.71 1.69.77 1.81.06.12.1.27.02.43-.08.17-.12.27-.23.42-.12.15-.25.33-.36.44-.12.12-.24.25-.1.49s.6 1.02 1.3 1.64c.89.8 1.64 1.04 1.88 1.16.25.12.39.1.53-.06.15-.17.62-.73.78-.98.17-.25.33-.21.55-.12.23.08 1.44.68 1.69.8.25.12.41.18.47.28.06.1.06.59-.15 1.18z"
+                />
+              </svg>
+              Hablar por WhatsApp
+            </a>
+            <a href="#" class="btn-wa">Agendar llamada</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 8 · FOOTER ========== -->
+    <footer class="site">
+      <div class="wrap">
+        <div class="top-grid">
+          <div class="brand-col">
+            <h5>muéstrate<span class="spark">✦</span></h5>
+            <p>
+              Agencia de marketing para MYPEs peruanas. Webs, marca y campañas
+              que traen clientes reales, rápido.
+            </p>
+            <div class="socials-row">
+              <a href="#" aria-label="Instagram">IG</a>
+              <a href="#" aria-label="Facebook">FB</a>
+              <a href="#" aria-label="TikTok">TK</a>
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="WhatsApp">WA</a>
+            </div>
+          </div>
+
+          <div class="col">
+            <h6>Servicios</h6>
+            <ul>
+              <li><a href="#">Páginas web</a></li>
+              <li><a href="#">Marca & logo</a></li>
+              <li><a href="#">Redes sociales</a></li>
+              <li><a href="#">Google Ads</a></li>
+              <li><a href="#">Fotografía</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Agencia</h6>
+            <ul>
+              <li><a href="#acerca">Acerca</a></li>
+              <li><a href="#trabajo">Trabajo</a></li>
+              <li><a href="#equipo">Equipo</a></li>
+              <li><a href="#testimonios">Testimonios</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <h6>Contacto</h6>
+            <ul>
+              <li>
+                <a
+                  href="/cdn-cgi/l/email-protection#9ff7f0f3fedff2eafaecebedfeebfab1effa"
+                  ><span
+                    class="__cf_email__"
+                    data-cfemail="9df5f2f1fcddf0e8f8eee9effce9f8b3edf8"
+                    >[email&#160;protected]</span
+                  ></a
+                >
+              </li>
+              <li><a href="tel:+51999888777">+51 999 888 777</a></li>
+              <li><a href="#">Lima, Perú</a></li>
+              <li><a href="#">Lun–Vie 9am–7pm</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bottom">
+          <div>© 2026 Muéstrate · Hecho con ✦ en Huancayo, Perú</div>
+          <div class="legal">
+            <a href="#">Privacidad</a><a href="#">Términos</a
+            ><a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+  </body>
+</html>

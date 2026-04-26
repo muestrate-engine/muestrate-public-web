@@ -1,0 +1,55 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "ghost" | "dark" | "light" | "outlineLight";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = "primary",
+  size = "md",
+  class: className = "",
+  target,
+  rel,
+  ariaLabel,
+} = Astro.props;
+
+const sizes = {
+  sm: "px-4 py-2.5 text-sm",
+  md: "px-6 py-3.5 text-base",
+  lg: "px-7 py-4 text-lg",
+};
+
+const variants = {
+  primary:
+    "transition-[transform,box-shadow] border-orange bg-orange text-paper shadow-none hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[5px_5px_0_var(--m-paper)]",
+  ghost:
+    "transition-[transform,background-color,color] border-current bg-transparent text-current hover:-translate-x-[3px] hover:-translate-y-[3px] hover:bg-ink hover:text-paper",
+  dark:
+    "transition-[transform,box-shadow] border-ink bg-ink text-paper shadow-none hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[5px_5px_0_var(--m-orange)]",
+  light:
+    "transition-[transform,box-shadow] border-paper bg-paper text-ink shadow-none hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[5px_5px_0_var(--m-orange)]",
+  outlineLight:
+    "transition-[transform,background-color] border-paper !text-paper bg-transparent hover:-translate-x-[3px] hover:-translate-y-[3px] hover:border-ink hover:bg-paper hover:!text-ink",
+};
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  aria-label={ariaLabel}
+  class:list={[
+    "focus-ring inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] font-display font-semibold tracking-normal duration-200 ease-out",
+    sizes[size],
+    variants[variant],
+    className,
+  ]}
+>
+  <slot />
+</a>

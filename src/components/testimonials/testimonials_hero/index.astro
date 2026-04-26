@@ -1,0 +1,33 @@
+---
+import { resultMetrics, WHATSAPP_URL } from "@config";
+import { ButtonLink } from "@components/shared";
+---
+
+<section class="relative overflow-hidden bg-ink py-20 text-paper md:py-28">
+  <div class="pointer-events-none absolute -right-20 top-10 font-display text-[18rem] font-bold leading-none text-orange/10 md:text-[28rem]" aria-hidden="true">"</div>
+  <div class="container-shell relative">
+    <p class="mb-7 inline-flex rounded-full border border-paper/15 bg-paper/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.06em]">
+      Testimonios · MYPEs peruanas
+    </p>
+    <h1 class="max-w-5xl font-display text-[clamp(3.5rem,9vw,8rem)] font-semibold leading-[0.9] tracking-normal">
+      Negocios que dejaron de <span class="text-orange">pasar piola.</span>
+    </h1>
+    <p class="mt-8 max-w-2xl text-lg leading-8 text-gray-300 md:text-xl">
+      Esto es lo que dicen quienes ya tienen una web, marca o campaña con Muéstrate. Resultados concretos, cero humo.
+    </p>
+    <div class="mt-10">
+      <ButtonLink href={WHATSAPP_URL} size="lg" target="_blank" rel="noreferrer">Quiero aparecer también →</ButtonLink>
+    </div>
+
+    <div class="mt-16 grid gap-5 border-t border-paper/15 pt-10 md:grid-cols-3">
+      {
+        resultMetrics.map((metric) => (
+          <div>
+            <div class="font-display text-5xl font-semibold leading-none text-orange">{metric.value}</div>
+            <p class="mt-2 text-sm leading-6 text-gray-300">{metric.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

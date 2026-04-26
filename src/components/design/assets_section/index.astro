@@ -1,0 +1,38 @@
+---
+import { assetTiles } from "@config";
+---
+
+<section id="assets" class="border-t-[1.5px] border-ink bg-paper-warm py-20 md:py-24">
+  <div class="container-shell">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="font-display text-lg font-semibold uppercase tracking-[0.1em] text-orange">06 / Entregables</p>
+        <h2 class="mt-2 font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none tracking-normal">Aplicaciones<br />de la marca.</h2>
+      </div>
+      <p class="max-w-md leading-7 text-gray-700">
+        Plantillas listas para usar. Tarjeta de presentación, flyer para redes, y firma de correo. Más piezas se suman con cada campaña.
+      </p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-3">
+      {
+        assetTiles.map((tile, index) => (
+          <a
+            href={tile.href}
+            class:list={[
+              "sticker-lift brand-outline flex aspect-[3/4] flex-col justify-between rounded-brand-lg p-6",
+              index === 0 && "bg-ink text-paper",
+              index === 1 && "bg-orange text-paper",
+              index === 2 && "bg-paper text-ink",
+            ]}
+          >
+            <div class="text-xs font-bold uppercase tracking-[0.08em] opacity-70">{tile.kind}</div>
+            <div class="font-display text-3xl font-semibold leading-none tracking-normal">
+              {tile.label}<br />→
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

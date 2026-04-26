@@ -1,0 +1,163 @@
+---
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@config";
+import BrandWordmark from "../brand_wordmark/index.astro";
+import SectionTitle from "../section_title/index.astro";
+
+const specs = [
+  { value: "90 × 55mm", label: "Formato estándar" },
+  { value: "350g", label: "Papel couché mate" },
+  { value: "4/4", label: "Full color ambas caras" },
+  { value: "Barniz UV", label: "Sobre el logo (opcional)" },
+];
+---
+
+<section class="bg-paper-warm pb-24 md:pb-32">
+  <div class="container-shell">
+    <SectionTitle title="Variante principal · Negro + Naranja" />
+    <div class="grid gap-8 lg:grid-cols-2">
+      <article
+        class="relative flex aspect-[90/55] flex-col justify-between overflow-hidden rounded-brand-md bg-ink p-7 text-paper shadow-brand-lg"
+      >
+        <div class="flex items-start justify-between gap-5">
+          <BrandWordmark class="w-[62%]" />
+          <span
+            class="rounded-full bg-orange px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.08em]"
+            >● Agencia</span
+          >
+        </div>
+        <svg
+          class="absolute right-7 top-1/2 size-16 -translate-y-1/2 opacity-20"
+          viewBox="0 0 60 60"
+          aria-hidden="true"
+        >
+          <path
+            d="M30 0 L34 26 L60 30 L34 34 L30 60 L26 34 L0 30 L26 26 Z"
+            fill="#FF5B1F"></path>
+        </svg>
+        <div class="flex items-end justify-between gap-6">
+          <p
+            class="font-display text-[clamp(0.9rem,2vw,1.1rem)] font-medium leading-tight tracking-normal"
+          >
+            Tu negocio<br />online en 48h.
+          </p>
+          <p
+            class="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-gray-300"
+          >
+            Huancayo · Perú
+          </p>
+        </div>
+      </article>
+
+      <article
+        class="relative flex aspect-[90/55] flex-col justify-between overflow-hidden rounded-brand-md bg-orange p-7 text-paper shadow-brand-lg"
+      >
+        <div
+          class="absolute right-7 top-6 font-display text-4xl font-bold leading-none"
+        >
+          m✦
+        </div>
+        <div>
+          <h3
+            class="font-display text-[clamp(1.55rem,3vw,2rem)] font-semibold leading-none tracking-normal"
+          >
+            Luis Ramírez
+          </h3>
+          <p
+            class="mt-1 text-xs font-semibold uppercase tracking-[0.04em] text-paper/90"
+          >
+            Fundador · Estrategia Digital
+          </p>
+          <span
+            class="mt-2 inline-flex rounded-full bg-ink px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.08em]"
+            >Muéstrate</span
+          >
+        </div>
+        <div class="grid gap-1.5 text-xs font-medium leading-relaxed">
+          <p>{CONTACT_PHONE}</p>
+          <p>{CONTACT_EMAIL}</p>
+          <p>muestrate.pe</p>
+          <p>@muestrate.pe</p>
+        </div>
+      </article>
+    </div>
+
+    <SectionTitle title="Variante clara · Blanca + Tinta" />
+    <div class="grid gap-8 lg:grid-cols-2">
+      <article
+        class="brand-outline flex aspect-[90/55] flex-col justify-between overflow-hidden rounded-brand-md bg-paper p-7 text-ink shadow-brand-lg"
+      >
+        <div class="flex items-start justify-between gap-5">
+          <BrandWordmark class="w-[62%]" accent />
+          <span
+            class="rounded-full bg-ink px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.08em] text-paper"
+            >● Agencia</span
+          >
+        </div>
+        <div class="flex items-end justify-between gap-6">
+          <p
+            class="font-display text-[clamp(0.9rem,2vw,1.1rem)] font-medium leading-tight tracking-normal"
+          >
+            Marketing con<br />chispa peruana.
+          </p>
+          <p
+            class="text-[0.65rem] font-bold uppercase tracking-[0.12em] text-gray-500"
+          >
+            Huancayo · Perú
+          </p>
+        </div>
+      </article>
+
+      <article
+        class="relative flex aspect-[90/55] flex-col justify-between overflow-hidden rounded-brand-md bg-ink p-7 text-paper shadow-brand-lg"
+      >
+        <div
+          class="absolute right-7 top-6 font-display text-4xl font-bold leading-none text-orange"
+        >
+          m✦
+        </div>
+        <div>
+          <h3
+            class="font-display text-[clamp(1.55rem,3vw,2rem)] font-semibold leading-none tracking-normal"
+          >
+            Luis Ramírez
+          </h3>
+          <p
+            class="mt-1 text-xs font-semibold uppercase tracking-[0.04em] text-orange-300"
+          >
+            Fundador · Estrategia Digital
+          </p>
+          <span
+            class="mt-2 inline-flex rounded-full bg-orange px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.08em]"
+            >Muéstrate</span
+          >
+        </div>
+        <div class="grid gap-1.5 text-xs font-medium leading-relaxed">
+          <p>{CONTACT_PHONE}</p>
+          <p>{CONTACT_EMAIL}</p>
+          <p>muestrate.pe</p>
+          <p>@muestrate.pe</p>
+        </div>
+      </article>
+    </div>
+
+    <p
+      class="mt-12 font-display text-sm font-semibold uppercase tracking-[0.1em] text-orange"
+    >
+      Especificaciones de impresión
+    </p>
+    <div
+      class="brand-outline mt-4 grid gap-4 rounded-brand-lg bg-paper p-6 md:grid-cols-4"
+    >
+      {
+        specs.map((spec) => (
+          <div>
+            <div class="font-display text-2xl font-semibold tracking-normal">
+              {spec.value}
+            </div>
+            <p class="mt-1 text-xs text-gray-500">{spec.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

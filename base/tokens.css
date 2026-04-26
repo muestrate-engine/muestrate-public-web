@@ -1,0 +1,114 @@
+/* =========================================================
+   MUÉSTRATE — Design Tokens
+   Agencia de marketing peruana • MYPEs
+   Tono: divertido-profesional (inspirado en Yape)
+   ========================================================= */
+
+/* ---- Fonts -------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* ---- Brand colors ---- */
+  --m-ink: #0e0e0e; /* fondo oscuro / texto base */
+  --m-ink-2: #1a1a1a; /* surface dark */
+  --m-ink-3: #2a2a2a; /* elevated dark */
+  --m-paper: #ffffff; /* blanco puro */
+  --m-paper-warm: #fff8f2; /* crema tibio (fondos suaves) */
+
+  /* Naranja Muéstrate — el acento brillante */
+  --m-orange: #ff5b1f;
+  --m-orange-600: #e64a12;
+  --m-orange-300: #ffb089;
+  --m-orange-100: #ffe3d2;
+
+  /* Neutrales */
+  --m-gray-900: #141414;
+  --m-gray-700: #3d3d3d;
+  --m-gray-500: #7a7a7a;
+  --m-gray-300: #cfcfcf;
+  --m-gray-200: #e6e6e6;
+  --m-gray-100: #f2f2f2;
+  --m-gray-50: #f8f8f8;
+
+  /* Acentos secundarios (para posts, ilustraciones, badges) */
+  --m-lime: #d7ff4a; /* pop acento — uso moderado */
+  --m-sun: #ffd60a; /* amarillo peruano */
+  --m-sky: #4ab8ff; /* azul cielo para posts */
+
+  /* Semánticos */
+  --m-success: #1fb871;
+  --m-warn: #ffb020;
+  --m-error: #ff3b30;
+
+  /* ---- Typography ---- */
+  --m-font-display: "Fredoka", system-ui, sans-serif; /* logo / titulares */
+  --m-font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Escala tipográfica */
+  --m-text-xs: 12px;
+  --m-text-sm: 14px;
+  --m-text-base: 16px;
+  --m-text-md: 18px;
+  --m-text-lg: 22px;
+  --m-text-xl: 28px;
+  --m-text-2xl: 36px;
+  --m-text-3xl: 48px;
+  --m-text-4xl: 64px;
+  --m-text-5xl: 84px;
+
+  /* ---- Radius ---- */
+  --m-radius-sm: 8px;
+  --m-radius-md: 14px;
+  --m-radius-lg: 22px;
+  --m-radius-xl: 32px;
+  --m-radius-pill: 999px;
+
+  /* ---- Shadows ---- */
+  --m-shadow-sm: 0 1px 2px rgba(14, 14, 14, 0.08);
+  --m-shadow-md: 0 6px 20px rgba(14, 14, 14, 0.1);
+  --m-shadow-lg: 0 18px 40px rgba(14, 14, 14, 0.14);
+  --m-shadow-pop: 6px 6px 0 var(--m-ink); /* sombra "sticker" tipo Yape */
+
+  /* ---- Spacing (base 4px) ---- */
+  --m-s-1: 4px;
+  --m-s-2: 8px;
+  --m-s-3: 12px;
+  --m-s-4: 16px;
+  --m-s-5: 24px;
+  --m-s-6: 32px;
+  --m-s-7: 48px;
+  --m-s-8: 64px;
+  --m-s-9: 96px;
+}
+
+/* Reset mínimo útil */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: var(--m-font-body);
+  color: var(--m-ink);
+  background: var(--m-paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Clases utilitarias base */
+.m-display {
+  font-family: var(--m-font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.m-body {
+  font-family: var(--m-font-body);
+}
+.m-pill {
+  border-radius: var(--m-radius-pill);
+}

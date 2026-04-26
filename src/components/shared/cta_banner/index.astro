@@ -1,0 +1,40 @@
+---
+import { CONTACT_EMAIL, WHATSAPP_URL } from "@config";
+import ButtonLink from "../button_link/index.astro";
+
+interface Props {
+  id?: string;
+  title?: string;
+  highlight?: string;
+  note?: string;
+}
+
+const {
+  id = "cta",
+  title = "¿Empezamos",
+  highlight = "el lunes?",
+  note = "Cuéntanos de tu negocio por WhatsApp. En 15 minutos te decimos qué plan te conviene y cuándo tendrías tu web lista.",
+} = Astro.props;
+---
+
+<section id={id} class="relative overflow-hidden bg-ink py-24 text-paper md:py-36">
+  <div class="pointer-events-none absolute -right-24 -top-24 font-display text-[22rem] font-bold leading-none text-orange/10 md:text-[32rem]" aria-hidden="true">
+    ✦
+  </div>
+  <div class="container-shell relative">
+    <h2 class="font-display text-[clamp(4rem,12vw,11rem)] font-semibold leading-[0.88] tracking-normal">
+      {title}<br /><span class="text-orange">{highlight}</span>
+    </h2>
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-8 border-t-[1.5px] border-paper/15 pt-8">
+      <p class="max-w-md text-base leading-7 text-gray-300">{note}</p>
+      <div class="flex flex-wrap gap-3">
+        <ButtonLink href={WHATSAPP_URL} variant="primary" size="lg" target="_blank" rel="noreferrer">
+          Hablar por WhatsApp
+        </ButtonLink>
+        <ButtonLink href={`mailto:${CONTACT_EMAIL}`} variant="outlineLight" size="lg">
+          Agendar llamada
+        </ButtonLink>
+      </div>
+    </div>
+  </div>
+</section>

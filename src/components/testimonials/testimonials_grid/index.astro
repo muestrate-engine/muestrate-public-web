@@ -1,0 +1,45 @@
+---
+import { testimonials } from "@config";
+---
+
+<section class="bg-paper-warm py-24 md:py-32">
+  <div class="container-shell">
+    <div class="mb-12 max-w-3xl">
+      <p class="mb-4 font-display text-sm font-semibold uppercase tracking-[0.1em] text-orange">Historias reales</p>
+      <h2 class="font-display text-[clamp(2.75rem,6vw,5rem)] font-semibold leading-none tracking-normal">
+        Cada testimonio viene de una necesidad simple: <span class="text-orange">vender mejor.</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {
+        testimonials.map((item) => (
+          <article
+            class:list={[
+              "brand-outline flex min-h-80 flex-col justify-between rounded-brand-lg p-8 shadow-[5px_5px_0_var(--m-ink)]",
+              item.dark ? "bg-ink text-paper" : item.featured ? "bg-orange text-paper" : "bg-paper text-ink",
+            ]}
+          >
+            <div>
+              <div class:list(["mb-5 text-lg tracking-[0.15em]", item.dark ? "text-orange" : item.featured ? "text-ink" : "text-orange"])}>
+                ★★★★★
+              </div>
+              <blockquote class="font-display text-2xl font-medium leading-tight tracking-normal">
+                {item.quote}
+              </blockquote>
+            </div>
+            <div class="mt-8 flex items-center gap-3">
+              <div class:list(["grid size-11 place-items-center rounded-full font-display text-lg font-semibold", item.dark ? "bg-orange text-paper" : "bg-ink text-paper"])}>
+                {item.initials}
+              </div>
+              <div>
+                <div class="text-sm font-bold">{item.name}</div>
+                <div class="text-xs opacity-70">{item.business}</div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

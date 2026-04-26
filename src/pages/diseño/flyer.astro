@@ -1,0 +1,23 @@
+---
+import { BaseLayout } from "@layouts";
+import {
+  DeliverablePageHeader,
+  DesignFooter,
+  DesignHeader,
+  SocialFlyerShowcase,
+} from "@components";
+import { PAGE_META, organizationSchema } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.designFlyer} structuredData={organizationSchema}>
+  <DesignHeader />
+  <main>
+    <DeliverablePageHeader
+      label="Entregable 02"
+      title="Flyers para redes sociales"
+      description="Plantillas para Instagram, Facebook y WhatsApp. Tres formatos feed 1:1 y tres stories 9:16. Todos usan la misma grilla: logo arriba, mensaje grande al centro, CTA o info abajo."
+    />
+    <SocialFlyerShowcase />
+  </main>
+  <DesignFooter />
+</BaseLayout>

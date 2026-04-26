@@ -1,0 +1,52 @@
+---
+import { ROUTES, testimonials } from "@config";
+import { ButtonLink, SectionHeading } from "@components/shared";
+
+const featuredTestimonials = testimonials.slice(0, 3);
+---
+
+<section id="testimonios" class="border-b-[1.5px] border-ink bg-orange py-24 text-paper md:py-32">
+  <div class="container-shell">
+    <SectionHeading
+      eyebrow="06 / Testimonios"
+      description="Historias reales de MYPEs peruanas que nos contrataron y ahora aparecen donde deben aparecer."
+      eyebrowClass="text-ink"
+    >
+      <Fragment slot="title">Lo que dicen los<br />que ya se <span class="text-ink">muestran.</span></Fragment>
+    </SectionHeading>
+
+    <div class="grid gap-5 lg:grid-cols-[1.2fr_1fr_1fr]">
+      {
+        featuredTestimonials.map((item) => (
+          <article
+            class:list={[
+              "flex min-h-80 flex-col justify-between rounded-brand-lg border-[1.5px] p-8",
+              item.dark
+                ? "border-paper bg-ink text-paper shadow-[5px_5px_0_var(--m-paper)]"
+                : "border-ink bg-paper text-ink shadow-[5px_5px_0_var(--m-ink)]",
+            ]}
+          >
+            {item.featured && <div class="font-display text-7xl font-bold leading-[0.6] text-orange">"</div>}
+            <div>
+              <div class="mb-4 mt-3 text-lg tracking-[0.15em] text-orange">★★★★★</div>
+              <blockquote class:list={["font-display font-medium leading-tight tracking-normal", item.featured ? "text-3xl" : "text-2xl"]}>
+                {item.quote}
+              </blockquote>
+            </div>
+            <div class="mt-8 flex items-center gap-3">
+              <div class="grid size-11 place-items-center rounded-full bg-orange font-display text-lg font-semibold text-paper">{item.initials}</div>
+              <div>
+                <div class="text-sm font-bold">{item.name}</div>
+                <div class="text-xs opacity-70">{item.business}</div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-10">
+      <ButtonLink href={ROUTES.testimonials} variant="dark">Leer más testimonios</ButtonLink>
+    </div>
+  </div>
+</section>

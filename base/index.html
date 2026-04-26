@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muéstrate — Sistema de Diseño</title>
+    <link rel="stylesheet" href="tokens.css" />
+    <style>
+      body {
+        background: var(--m-paper-warm);
+        color: var(--m-ink);
+      }
+
+      /* ---- Layout shell ---- */
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px 120px;
+      }
+      header.top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 0;
+        border-bottom: 1.5px solid var(--m-ink);
+      }
+      header.top .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 22px;
+      }
+      header.top nav a {
+        color: var(--m-ink);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        margin-left: 24px;
+      }
+      header.top nav a:hover {
+        color: var(--m-orange-600);
+      }
+
+      /* ---- Hero ---- */
+      .hero {
+        padding: 80px 0 64px;
+      }
+      .hero .eyebrow {
+        display: inline-block;
+        background: var(--m-ink);
+        color: var(--m-paper);
+        padding: 8px 16px;
+        border-radius: var(--m-radius-pill);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        margin-bottom: 28px;
+      }
+      .hero h1 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: clamp(56px, 9vw, 120px);
+        line-height: 0.92;
+        letter-spacing: -0.035em;
+        margin: 0 0 28px;
+      }
+      .hero h1 .accent {
+        color: var(--m-orange);
+      }
+      .hero p.lead {
+        max-width: 680px;
+        font-size: 22px;
+        line-height: 1.45;
+        color: var(--m-gray-700);
+        margin: 0;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin-top: 72px;
+        padding-top: 40px;
+        border-top: 1.5px solid var(--m-ink);
+      }
+      .stat .k {
+        font-family: var(--m-font-display);
+        font-size: 52px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      .stat .l {
+        font-size: 14px;
+        color: var(--m-gray-700);
+        margin-top: 8px;
+      }
+
+      /* ---- Section chrome ---- */
+      section.block {
+        padding: 88px 0;
+        border-top: 1.5px solid var(--m-ink);
+      }
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 48px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .section-head .num {
+        font-family: var(--m-font-display);
+        font-size: 18px;
+        color: var(--m-orange);
+        font-weight: 600;
+        letter-spacing: 0.1em;
+      }
+      .section-head h2 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: clamp(40px, 5vw, 64px);
+        letter-spacing: -0.03em;
+        margin: 6px 0 0;
+        line-height: 1;
+      }
+      .section-head .desc {
+        max-width: 460px;
+        color: var(--m-gray-700);
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      /* ---- Color palette ---- */
+      .palette {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+      .swatch {
+        border-radius: var(--m-radius-lg);
+        padding: 24px;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1.5px solid var(--m-ink);
+      }
+      .swatch .name {
+        font-family: var(--m-font-display);
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .swatch .meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 600;
+        opacity: 0.85;
+      }
+      .swatch.dark {
+        background: var(--m-ink);
+        color: var(--m-paper);
+      }
+      .swatch.orange {
+        background: var(--m-orange);
+        color: var(--m-paper);
+      }
+      .swatch.white {
+        background: var(--m-paper);
+        color: var(--m-ink);
+      }
+      .swatch.cream {
+        background: var(--m-paper-warm);
+        color: var(--m-ink);
+      }
+      .swatch.sun {
+        background: var(--m-sun);
+        color: var(--m-ink);
+      }
+      .swatch.lime {
+        background: var(--m-lime);
+        color: var(--m-ink);
+      }
+      .swatch.sky {
+        background: var(--m-sky);
+        color: var(--m-ink);
+      }
+      .swatch.gray {
+        background: var(--m-gray-100);
+        color: var(--m-ink);
+      }
+
+      /* ---- Typography ---- */
+      .type-row {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+        align-items: baseline;
+        padding: 24px 0;
+        border-bottom: 1px dashed var(--m-gray-300);
+      }
+      .type-row .tag {
+        font-size: 13px;
+        color: var(--m-gray-700);
+        font-weight: 600;
+      }
+      .type-row .sample {
+        font-family: var(--m-font-display);
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .type-row .sample.body {
+        font-family: var(--m-font-body);
+        letter-spacing: -0.005em;
+        line-height: 1.35;
+      }
+
+      .two-col-fonts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-top: 40px;
+      }
+      .font-card {
+        background: var(--m-paper);
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        padding: 32px;
+      }
+      .font-card .aa {
+        font-size: 120px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 16px;
+      }
+      .font-card h4 {
+        margin: 0 0 4px;
+        font-family: var(--m-font-display);
+        font-size: 22px;
+        font-weight: 600;
+      }
+      .font-card .use {
+        font-size: 13px;
+        color: var(--m-gray-700);
+      }
+      .font-card .weights {
+        font-size: 13px;
+        color: var(--m-gray-500);
+        margin-top: 12px;
+      }
+
+      /* ---- Components ---- */
+      .components-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .comp-card {
+        background: var(--m-paper);
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        padding: 32px;
+      }
+      .comp-card h4 {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 18px;
+        margin: 0 0 20px;
+      }
+      .comp-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      /* Buttons */
+      .m-btn {
+        font-family: var(--m-font-body);
+        font-weight: 700;
+        font-size: 15px;
+        padding: 14px 22px;
+        border-radius: var(--m-radius-pill);
+        border: 1.5px solid var(--m-ink);
+        background: var(--m-ink);
+        color: var(--m-paper);
+        cursor: pointer;
+        transition: transform 0.12s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .m-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0 var(--m-ink);
+      }
+      .m-btn.primary {
+        background: var(--m-orange);
+        border-color: var(--m-ink);
+        color: var(--m-paper);
+      }
+      .m-btn.ghost {
+        background: transparent;
+        color: var(--m-ink);
+      }
+      .m-btn.white {
+        background: var(--m-paper);
+        color: var(--m-ink);
+      }
+      .m-btn.sm {
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+
+      /* Badges */
+      .m-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: var(--m-radius-pill);
+        font-size: 12px;
+        font-weight: 700;
+        border: 1.5px solid var(--m-ink);
+        background: var(--m-paper);
+      }
+      .m-badge.orange {
+        background: var(--m-orange);
+        color: var(--m-paper);
+      }
+      .m-badge.sun {
+        background: var(--m-sun);
+      }
+      .m-badge.lime {
+        background: var(--m-lime);
+      }
+      .m-badge.dark {
+        background: var(--m-ink);
+        color: var(--m-paper);
+      }
+
+      /* Input */
+      .m-input {
+        font-family: var(--m-font-body);
+        font-size: 15px;
+        padding: 14px 18px;
+        border-radius: var(--m-radius-md);
+        border: 1.5px solid var(--m-ink);
+        background: var(--m-paper);
+        width: 100%;
+      }
+      .m-input:focus {
+        outline: 3px solid var(--m-orange-300);
+      }
+
+      /* Sticker card */
+      .sticker {
+        background: var(--m-paper);
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        padding: 24px;
+        box-shadow: var(--m-shadow-pop);
+      }
+      .sticker.dark {
+        background: var(--m-ink);
+        color: var(--m-paper);
+      }
+      .sticker.orange {
+        background: var(--m-orange);
+        color: var(--m-paper);
+        border-color: var(--m-ink);
+      }
+
+      /* ---- Voice & Tone ---- */
+      .voice-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .voice-card {
+        padding: 28px;
+        border-radius: var(--m-radius-lg);
+        border: 1.5px solid var(--m-ink);
+      }
+      .voice-card .tag {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 12px;
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: var(--m-radius-pill);
+      }
+      .voice-card.do .tag {
+        background: #1fb871;
+        color: white;
+      }
+      .voice-card.dont .tag {
+        background: var(--m-ink);
+        color: white;
+      }
+      .voice-card p {
+        margin: 4px 0;
+        font-size: 18px;
+        line-height: 1.4;
+        font-family: var(--m-font-display);
+        font-weight: 500;
+      }
+      .voice-card .note {
+        font-size: 13px;
+        color: var(--m-gray-500);
+        font-family: var(--m-font-body);
+        font-weight: 400;
+        margin-top: 16px;
+      }
+
+      /* ---- Usage examples ---- */
+      .usage {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .usage a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .usage .tile {
+        border-radius: var(--m-radius-lg);
+        border: 1.5px solid var(--m-ink);
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .usage .tile:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0 var(--m-ink);
+      }
+      .usage .tile .label {
+        font-family: var(--m-font-display);
+        font-weight: 600;
+        font-size: 24px;
+        letter-spacing: -0.02em;
+      }
+      .usage .tile .kind {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        opacity: 0.7;
+      }
+      .usage .t-card {
+        background: var(--m-ink);
+        color: var(--m-paper);
+      }
+      .usage .t-flyer {
+        background: var(--m-orange);
+        color: var(--m-paper);
+      }
+      .usage .t-email {
+        background: var(--m-paper);
+        color: var(--m-ink);
+      }
+
+      /* Logo lockups */
+      .logo-lockups {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .lockup {
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-lg);
+        aspect-ratio: 3/2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+      }
+      .lockup.dark {
+        background: var(--m-ink);
+        color: var(--m-paper);
+      }
+      .lockup.white {
+        background: var(--m-paper);
+        color: var(--m-ink);
+      }
+      .lockup.orange {
+        background: var(--m-orange);
+        color: var(--m-paper);
+      }
+      .lockup img,
+      .lockup svg {
+        max-width: 100%;
+        height: 100%;
+        max-height: 80px;
+      }
+
+      /* Iconography */
+      .icons-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
+      }
+      .icon-tile {
+        aspect-ratio: 1/1;
+        border: 1.5px solid var(--m-ink);
+        border-radius: var(--m-radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--m-paper);
+      }
+
+      /* Footer */
+      footer.foot {
+        padding: 48px 0 16px;
+        border-top: 1.5px solid var(--m-ink);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: var(--m-gray-500);
+      }
+
+      @media (max-width: 860px) {
+        .palette,
+        .components-grid,
+        .two-col-fonts,
+        .usage,
+        .voice-grid,
+        .logo-lockups {
+          grid-template-columns: 1fr;
+        }
+        .hero-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .icons-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .type-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- ============ TOP BAR ============ -->
+      <header class="top">
+        <div class="brand">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 140 140"
+            fill="none"
+            style="color: var(--m-ink)"
+          >
+            <text
+              x="50%"
+              y="102"
+              text-anchor="middle"
+              font-family="Fredoka, system-ui, sans-serif"
+              font-weight="700"
+              font-size="130"
+              fill="currentColor"
+            >
+              m
+            </text>
+            <g transform="translate(104,12)">
+              <path
+                d="M11 0 L13 8 L21 10 L13 12 L11 20 L9 12 L1 10 L9 8 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          muéstrate / design system
+        </div>
+        <nav>
+          <a href="#brand">Marca</a>
+          <a href="#color">Color</a>
+          <a href="#type">Tipografía</a>
+          <a href="#components">Componentes</a>
+          <a href="#voice">Voz</a>
+          <a href="#assets">Entregables</a>
+        </nav>
+      </header>
+
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <span class="eyebrow">● SISTEMA DE DISEÑO · v1.0 · ABRIL 2026</span>
+        <h1>Así se ve<br />cuando te <span class="accent">muestras</span>.</h1>
+        <p class="lead">
+          La guía para que todo lo que sale de Muéstrate — desde una tarjeta
+          hasta una campaña — se sienta igual: cercano, con chispa, y que los
+          clientes de nuestras MYPEs digan <em>"estos saben lo que hacen"</em>.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="k">48h</div>
+            <div class="l">Promesa de entrega</div>
+          </div>
+          <div class="stat">
+            <div class="k">1</div>
+            <div class="l">Color principal (naranja)</div>
+          </div>
+          <div class="stat">
+            <div class="k">2</div>
+            <div class="l">Familias tipográficas</div>
+          </div>
+          <div class="stat">
+            <div class="k">∞</div>
+            <div class="l">MYPEs por mostrar</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 01 · BRAND ============ -->
+      <section class="block" id="brand">
+        <div class="section-head">
+          <div>
+            <div class="num">01 / MARCA</div>
+            <h2>El logo y su chispa.</h2>
+          </div>
+          <p class="desc">
+            El logotipo es <strong>"muéstrate"</strong> en minúsculas, redondo y
+            amigable — con una chispa arriba a la derecha que representa el
+            momento "ajá" cuando un negocio por fin aparece online.
+          </p>
+        </div>
+
+        <div class="logo-lockups">
+          <div class="lockup dark">
+            <svg
+              viewBox="0 0 520 140"
+              fill="none"
+              style="color: currentColor; width: 100%; height: 100%"
+            >
+              <text
+                x="0"
+                y="108"
+                font-family="Fredoka, system-ui, sans-serif"
+                font-weight="600"
+                font-size="128"
+                letter-spacing="-4"
+                fill="currentColor"
+              >
+                muéstrate
+              </text>
+              <g transform="translate(470,6)">
+                <path
+                  d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z"
+                  fill="currentColor"
+                />
+                <circle cx="36" cy="6" r="3" fill="currentColor" />
+              </g>
+            </svg>
+          </div>
+          <div class="lockup white">
+            <svg
+              viewBox="0 0 520 140"
+              fill="none"
+              style="color: currentColor; width: 100%; height: 100%"
+            >
+              <text
+                x="0"
+                y="108"
+                font-family="Fredoka, system-ui, sans-serif"
+                font-weight="600"
+                font-size="128"
+                letter-spacing="-4"
+                fill="currentColor"
+              >
+                muéstrate
+              </text>
+              <g transform="translate(470,6)">
+                <path
+                  d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z"
+                  fill="currentColor"
+                />
+                <circle cx="36" cy="6" r="3" fill="currentColor" />
+              </g>
+            </svg>
+          </div>
+          <div class="lockup orange">
+            <svg
+              viewBox="0 0 520 140"
+              fill="none"
+              style="color: currentColor; width: 100%; height: 100%"
+            >
+              <text
+                x="0"
+                y="108"
+                font-family="Fredoka, system-ui, sans-serif"
+                font-weight="600"
+                font-size="128"
+                letter-spacing="-4"
+                fill="currentColor"
+              >
+                muéstrate
+              </text>
+              <g transform="translate(470,6)">
+                <path
+                  d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z"
+                  fill="currentColor"
+                />
+                <circle cx="36" cy="6" r="3" fill="currentColor" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Reglas de uso -->
+        <div class="components-grid" style="margin-top: 24px">
+          <div class="comp-card">
+            <h4>✓ Sí hacer</h4>
+            <ul
+              style="
+                margin: 0;
+                padding-left: 20px;
+                line-height: 1.8;
+                font-size: 15px;
+              "
+            >
+              <li>Usar sobre negro, naranja o blanco puro.</li>
+              <li>Mantener área de respeto = altura de la "m".</li>
+              <li>Respetar la chispa — es parte del logo.</li>
+              <li>Tamaño mínimo: 80px de ancho digital / 20mm impreso.</li>
+            </ul>
+          </div>
+          <div class="comp-card" style="background: var(--m-gray-50)">
+            <h4>✗ No hacer</h4>
+            <ul
+              style="
+                margin: 0;
+                padding-left: 20px;
+                line-height: 1.8;
+                font-size: 15px;
+              "
+            >
+              <li>Cambiar la tipografía del logo.</li>
+              <li>Aplicar sombras, degradés o efectos 3D.</li>
+              <li>Rotar, inclinar o estirar.</li>
+              <li>Usar sobre fotos sin contraste suficiente.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 02 · COLOR ============ -->
+      <section class="block" id="color">
+        <div class="section-head">
+          <div>
+            <div class="num">02 / COLOR</div>
+            <h2>Naranja, negro,<br />y un toque de sol.</h2>
+          </div>
+          <p class="desc">
+            Nuestra paleta es simple a propósito:
+            <strong>negro + naranja + blanco</strong> hacen el 90% del trabajo.
+            Los acentos (lima, sol, cielo) entran para posts de redes e
+            ilustraciones específicas.
+          </p>
+        </div>
+
+        <h3
+          style="
+            font-family: var(--m-font-display);
+            font-weight: 600;
+            margin: 0 0 16px;
+            font-size: 20px;
+          "
+        >
+          Base
+        </h3>
+        <div class="palette">
+          <div class="swatch dark">
+            <div class="name">Tinta</div>
+            <div class="meta"><span>#0E0E0E</span><span>INK</span></div>
+          </div>
+          <div class="swatch orange">
+            <div class="name">Naranja<br />Muéstrate</div>
+            <div class="meta"><span>#FF5B1F</span><span>BRAND</span></div>
+          </div>
+          <div class="swatch white" style="border-color: var(--m-ink)">
+            <div class="name">Blanco</div>
+            <div class="meta"><span>#FFFFFF</span><span>PAPER</span></div>
+          </div>
+          <div class="swatch cream">
+            <div class="name">Crema</div>
+            <div class="meta"><span>#FFF8F2</span><span>PAPER WARM</span></div>
+          </div>
+        </div>
+
+        <h3
+          style="
+            font-family: var(--m-font-display);
+            font-weight: 600;
+            margin: 40px 0 16px;
+            font-size: 20px;
+          "
+        >
+          Acentos (uso moderado)
+        </h3>
+        <div class="palette">
+          <div class="swatch sun">
+            <div class="name">Sol</div>
+            <div class="meta"><span>#FFD60A</span><span>ACCENT</span></div>
+          </div>
+          <div class="swatch lime">
+            <div class="name">Lima</div>
+            <div class="meta"><span>#D7FF4A</span><span>ACCENT</span></div>
+          </div>
+          <div class="swatch sky">
+            <div class="name">Cielo</div>
+            <div class="meta"><span>#4AB8FF</span><span>ACCENT</span></div>
+          </div>
+          <div class="swatch gray">
+            <div class="name">Gris 100</div>
+            <div class="meta"><span>#F2F2F2</span><span>NEUTRAL</span></div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 32px;
+            padding: 24px;
+            background: var(--m-ink);
+            color: var(--m-paper);
+            border-radius: var(--m-radius-lg);
+          "
+        >
+          <strong style="font-family: var(--m-font-display); font-size: 18px"
+            >Regla 60-30-10</strong
+          >
+          <p
+            style="
+              margin: 8px 0 0;
+              color: var(--m-gray-300);
+              font-size: 14px;
+              line-height: 1.5;
+            "
+          >
+            60% blanco o crema · 30% tinta negra · 10% naranja. Los acentos
+            entran ocasionalmente para posts, ilustraciones o celebraciones.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ 03 · TIPOGRAFÍA ============ -->
+      <section class="block" id="type">
+        <div class="section-head">
+          <div>
+            <div class="num">03 / TIPOGRAFÍA</div>
+            <h2>Fredoka + Jakarta.</h2>
+          </div>
+          <p class="desc">
+            <strong>Fredoka</strong> para titulares — redonda, amigable, con la
+            misma personalidad del logo. <strong>Plus Jakarta Sans</strong> para
+            textos largos — legible, moderna, y gratis en Google Fonts.
+          </p>
+        </div>
+
+        <div class="two-col-fonts">
+          <div class="font-card">
+            <div
+              class="aa"
+              style="font-family: var(--m-font-display); font-weight: 600"
+            >
+              Aa
+            </div>
+            <h4>Fredoka</h4>
+            <div class="use">Display · Titulares · Logo · Botones clave</div>
+            <div class="weights">
+              Regular 400 · Medium 500 · SemiBold 600 · Bold 700
+            </div>
+          </div>
+          <div class="font-card">
+            <div
+              class="aa"
+              style="font-family: var(--m-font-body); font-weight: 700"
+            >
+              Aa
+            </div>
+            <h4>Plus Jakarta Sans</h4>
+            <div class="use">Texto corrido · UI · Formularios · Listas</div>
+            <div class="weights">
+              Regular 400 · Medium 500 · SemiBold 600 · Bold 700 · ExtraBold 800
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 48px">
+          <div class="type-row">
+            <div class="tag">DISPLAY · 84/0.9</div>
+            <div class="sample" style="font-size: 84px; font-weight: 600">
+              Muéstrate ya.
+            </div>
+          </div>
+          <div class="type-row">
+            <div class="tag">H1 · 64/1</div>
+            <div class="sample" style="font-size: 56px; font-weight: 600">
+              Tu negocio online en 48h
+            </div>
+          </div>
+          <div class="type-row">
+            <div class="tag">H2 · 40/1.1</div>
+            <div class="sample" style="font-size: 36px; font-weight: 600">
+              Páginas que sí venden
+            </div>
+          </div>
+          <div class="type-row">
+            <div class="tag">H3 · 24/1.2</div>
+            <div class="sample" style="font-size: 24px; font-weight: 500">
+              Plan Empieza · S/ 250
+            </div>
+          </div>
+          <div class="type-row">
+            <div class="tag">BODY L · 20/1.45</div>
+            <div class="sample body" style="font-size: 20px">
+              Somos una agencia pe, hecha para MYPEs peruanas. Sin enredos, sin
+              plantillas feas, sin esperar 3 meses.
+            </div>
+          </div>
+          <div class="type-row">
+            <div class="tag">BODY · 16/1.55</div>
+            <div class="sample body" style="font-size: 16px">
+              Tu cliente te busca en Google. Tu competencia ya aparece. Tú
+              deberías también. Por eso existe Muéstrate: hacemos la web que
+              necesitas, rápido, bonita, y que trabaja por ti 24/7.
+            </div>
+          </div>
+          <div class="type-row">
+            <div class="tag">CAPTION · 12/1.4</div>
+            <div
+              class="sample body"
+              style="
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--m-gray-500);
+              "
+            >
+              MUÉSTRATE · AGENCIA DE MARKETING · HUANCAYO, PERÚ
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 04 · COMPONENTES ============ -->
+      <section class="block" id="components">
+        <div class="section-head">
+          <div>
+            <div class="num">04 / COMPONENTES</div>
+            <h2>Las piezas Lego.</h2>
+          </div>
+          <p class="desc">
+            Componentes reutilizables con bordes gruesos, sombras tipo "sticker"
+            y esquinas redondeadas. Todo se siente tocable.
+          </p>
+        </div>
+
+        <div class="components-grid">
+          <!-- Botones -->
+          <div class="comp-card">
+            <h4>Botones</h4>
+            <div class="comp-row">
+              <button class="m-btn primary">Quiero mi web</button>
+              <button class="m-btn">Ver planes</button>
+              <button class="m-btn white">Contactar</button>
+            </div>
+            <div class="comp-row" style="margin-top: 16px">
+              <button class="m-btn primary sm">Empezar →</button>
+              <button class="m-btn sm">WhatsApp</button>
+              <button class="m-btn ghost sm">Saber más</button>
+            </div>
+          </div>
+
+          <!-- Badges -->
+          <div class="comp-card">
+            <h4>Badges / Etiquetas</h4>
+            <div class="comp-row">
+              <span class="m-badge orange">● En vivo</span>
+              <span class="m-badge sun">Nuevo</span>
+              <span class="m-badge lime">48h</span>
+              <span class="m-badge dark">Pro</span>
+              <span class="m-badge">MYPE</span>
+            </div>
+          </div>
+
+          <!-- Inputs -->
+          <div class="comp-card">
+            <h4>Formularios</h4>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <input class="m-input" placeholder="¿Cómo se llama tu negocio?" />
+              <input class="m-input" placeholder="tu@correo.com" />
+              <button class="m-btn primary" style="width: 100%">
+                Agendar llamada gratis
+              </button>
+            </div>
+          </div>
+
+          <!-- Sticker cards -->
+          <div class="comp-card" style="background: var(--m-gray-50)">
+            <h4>Sticker cards</h4>
+            <div style="display: flex; flex-direction: column; gap: 14px">
+              <div class="sticker orange">
+                <div
+                  style="
+                    font-family: var(--m-font-display);
+                    font-weight: 600;
+                    font-size: 20px;
+                  "
+                >
+                  Plan Empieza
+                </div>
+                <div style="font-size: 13px; opacity: 0.9; margin-top: 4px">
+                  Web de 1 página · 48h · S/ 250
+                </div>
+              </div>
+              <div class="sticker">
+                <div
+                  style="
+                    font-family: var(--m-font-display);
+                    font-weight: 600;
+                    font-size: 20px;
+                  "
+                >
+                  Plan Crece
+                </div>
+                <div
+                  style="
+                    font-size: 13px;
+                    color: var(--m-gray-700);
+                    margin-top: 4px;
+                  "
+                >
+                  Web 5 secciones + SEO · S/ 500
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing card -->
+          <div
+            class="comp-card"
+            style="
+              background: var(--m-ink);
+              color: var(--m-paper);
+              border-color: var(--m-ink);
+            "
+          >
+            <h4 style="color: var(--m-paper)">Card oscura</h4>
+            <div
+              style="
+                display: flex;
+                gap: 14px;
+                align-items: baseline;
+                margin: 12px 0;
+              "
+            >
+              <span
+                style="
+                  font-family: var(--m-font-display);
+                  font-size: 56px;
+                  font-weight: 600;
+                  line-height: 1;
+                "
+                >S/500</span
+              >
+              <span style="opacity: 0.6; font-size: 14px">/ una vez</span>
+            </div>
+            <p style="margin: 0; font-size: 14px; color: var(--m-gray-300)">
+              Web completa, dominio + hosting primer año, formulario de
+              contacto, WhatsApp, SEO básico.
+            </p>
+            <button class="m-btn primary" style="margin-top: 16px; width: 100%">
+              Lo quiero
+            </button>
+          </div>
+
+          <!-- Testimonial -->
+          <div class="comp-card">
+            <h4>Testimonial</h4>
+            <p
+              style="
+                font-family: var(--m-font-display);
+                font-size: 22px;
+                font-weight: 500;
+                line-height: 1.3;
+                margin: 0 0 20px;
+              "
+            >
+              "Me llegó mi primer cliente por Google a la semana de tener la
+              web. Vale cada sol."
+            </p>
+            <div style="display: flex; align-items: center; gap: 12px">
+              <div
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: var(--m-orange);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-family: var(--m-font-display);
+                  font-weight: 600;
+                  font-size: 18px;
+                "
+              >
+                R
+              </div>
+              <div>
+                <div style="font-weight: 700; font-size: 14px">Rosa M.</div>
+                <div style="font-size: 12px; color: var(--m-gray-500)">
+                  Barbería "El Chalaco" · Callao
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 05 · VOZ ============ -->
+      <section class="block" id="voice">
+        <div class="section-head">
+          <div>
+            <div class="num">05 / VOZ Y TONO</div>
+            <h2>Cercano pero<br />profesional.</h2>
+          </div>
+          <p class="desc">
+            Hablamos como Yape, pero a negocios. Tuteo directo, frases cortas,
+            un toque de humor peruano. <strong>Nunca formal,</strong> nunca con
+            jerga técnica que nadie entiende.
+          </p>
+        </div>
+
+        <div class="voice-grid">
+          <div class="voice-card do" style="background: var(--m-paper-warm)">
+            <span class="tag">SÍ ✓</span>
+            <p>"Tu web lista en 48h. Sin enredos, sin esperar meses."</p>
+            <p>"¿Listo para mostrarte? Empezamos hoy."</p>
+            <p>"Web + dominio + hosting = una sola cuota."</p>
+            <div class="note">
+              Frases cortas. Tuteo. Beneficio concreto. Un poquito de chispa.
+            </div>
+          </div>
+          <div class="voice-card dont" style="background: var(--m-gray-50)">
+            <span class="tag">NO ✗</span>
+            <p style="text-decoration: line-through; opacity: 0.7">
+              "Nuestra empresa ofrece soluciones digitales integrales para
+              PYMES."
+            </p>
+            <p style="text-decoration: line-through; opacity: 0.7">
+              "Contáctenos para cotizar su proyecto web."
+            </p>
+            <p style="text-decoration: line-through; opacity: 0.7">
+              "Sinergia, stakeholders, transformación digital."
+            </p>
+            <div class="note">
+              Lenguaje corporativo aburrido. Usted. Jerga vacía.
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+          "
+        >
+          <div class="sticker">
+            <div
+              style="
+                font-family: var(--m-font-display);
+                font-size: 14px;
+                color: var(--m-orange);
+                font-weight: 600;
+              "
+            >
+              PALABRA FAVORITA
+            </div>
+            <div
+              style="
+                font-family: var(--m-font-display);
+                font-size: 32px;
+                font-weight: 600;
+                margin-top: 4px;
+              "
+            >
+              Muéstrate.
+            </div>
+          </div>
+          <div class="sticker">
+            <div
+              style="
+                font-family: var(--m-font-display);
+                font-size: 14px;
+                color: var(--m-orange);
+                font-weight: 600;
+              "
+            >
+              REMATE TÍPICO
+            </div>
+            <div
+              style="
+                font-family: var(--m-font-display);
+                font-size: 32px;
+                font-weight: 600;
+                margin-top: 4px;
+              "
+            >
+              Así de simple.
+            </div>
+          </div>
+          <div class="sticker">
+            <div
+              style="
+                font-family: var(--m-font-display);
+                font-size: 14px;
+                color: var(--m-orange);
+                font-weight: 600;
+              "
+            >
+              INVITACIÓN
+            </div>
+            <div
+              style="
+                font-family: var(--m-font-display);
+                font-size: 32px;
+                font-weight: 600;
+                margin-top: 4px;
+              "
+            >
+              Empezamos hoy.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 06 · ENTREGABLES ============ -->
+      <section class="block" id="assets">
+        <div class="section-head">
+          <div>
+            <div class="num">06 / ENTREGABLES</div>
+            <h2>Aplicaciones<br />de la marca.</h2>
+          </div>
+          <p class="desc">
+            Plantillas listas para usar. Tarjeta de presentación, flyer para
+            redes, y firma de correo. Más piezas se suman con cada campaña.
+          </p>
+        </div>
+
+        <div class="usage">
+          <a href="tarjeta.html">
+            <div class="tile t-card">
+              <div class="kind">ENTREGABLE 01</div>
+              <div class="label">Tarjeta de<br />presentación →</div>
+            </div>
+          </a>
+          <a href="flyer.html">
+            <div class="tile t-flyer">
+              <div class="kind">ENTREGABLE 02</div>
+              <div class="label">Flyer para<br />redes →</div>
+            </div>
+          </a>
+          <a href="firma-email.html">
+            <div class="tile t-email">
+              <div class="kind">ENTREGABLE 03</div>
+              <div class="label">Firma de<br />correo →</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ FOOTER ============ -->
+      <footer class="foot">
+        <div>Muéstrate · Agencia de Marketing · Lima, Perú</div>
+        <div>Sistema v1.0 · Abril 2026</div>
+      </footer>
+    </div>
+  </body>
+</html>

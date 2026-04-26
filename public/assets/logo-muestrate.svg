@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 140" fill="none">
+  <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+  <g transform="translate(470,6)">
+    <path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"></path>
+    <circle cx="36" cy="6" r="3" fill="currentColor"></circle>
+  </g>
+</svg>

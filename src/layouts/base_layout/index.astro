@@ -1,0 +1,63 @@
+---
+import "@styles/global.css";
+import { FloatingActions } from "@components/shared";
+import { DEFAULT_IMAGE, makeCanonicalUrl, type PageMeta } from "@config";
+
+interface Props {
+  meta: PageMeta;
+  structuredData?: unknown | unknown[];
+  bodyClass?: string;
+  noindex?: boolean;
+}
+
+const { meta, structuredData, bodyClass = "", noindex = false } = Astro.props;
+const canonicalUrl = makeCanonicalUrl(meta.path);
+const imageUrl = makeCanonicalUrl(meta.image ?? DEFAULT_IMAGE);
+const schemas = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/assets/isotipo-m.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="theme-color" content="#FF5B1F" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:site_name" content="Muéstrate" />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={meta.title} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    {
+      schemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+  </head>
+  <body class={bodyClass}>
+    <slot />
+    <FloatingActions />
+    <script>
+      import "../../scripts/site_animations";
+    </script>
+  </body>
+</html>

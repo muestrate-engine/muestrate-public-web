@@ -1,0 +1,28 @@
+---
+import { MAIN_NAVIGATION, WHATSAPP_URL } from "@config";
+import ButtonLink from "../button_link/index.astro";
+import Logo from "../logo/index.astro";
+---
+
+<header class="sticky top-0 z-50 border-b-[1.5px] border-ink bg-ink text-paper">
+  <div class="container-shell flex min-h-[72px] items-center justify-between py-5">
+    <Logo class="text-paper" sparkleClass="text-orange" />
+
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
+      {
+        MAIN_NAVIGATION.map((item) => (
+          <a
+            href={item.href}
+            class="focus-ring rounded-full text-sm font-semibold text-paper/75 transition hover:text-orange"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <ButtonLink href={WHATSAPP_URL} variant="primary" size="sm" class="text-sm" target="_blank" rel="noreferrer">
+      WhatsApp
+    </ButtonLink>
+  </div>
+</header>

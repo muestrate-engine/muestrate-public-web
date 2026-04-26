@@ -1,0 +1,28 @@
+---
+import { designHeroStats } from "@config";
+---
+
+<section class="bg-paper-warm py-20 md:py-24">
+  <div class="container-shell">
+    <p class="mb-7 inline-flex rounded-full bg-ink px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-paper">
+      ● Sistema de diseño · v1.0 · Abril 2026
+    </p>
+    <h1 class="max-w-5xl font-display text-[clamp(3.5rem,9vw,7.5rem)] font-semibold leading-[0.92] tracking-normal">
+      Así se ve<br />cuando te <span class="text-orange">muestras</span>.
+    </h1>
+    <p class="mt-7 max-w-2xl text-xl leading-8 text-gray-700 md:text-[1.35rem]">
+      La guía para que todo lo que sale de Muéstrate — desde una tarjeta hasta una campaña — se sienta igual: cercano, con chispa, y que los clientes de nuestras MYPEs digan <em>"estos saben lo que hacen"</em>.
+    </p>
+
+    <div class="mt-16 grid gap-6 border-t-[1.5px] border-ink pt-10 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        designHeroStats.map((stat) => (
+          <div>
+            <div class="font-display text-5xl font-semibold leading-none tracking-normal">{stat.value}</div>
+            <p class="mt-2 text-sm leading-5 text-gray-700">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

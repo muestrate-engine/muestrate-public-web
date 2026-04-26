@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fredoka", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --color-ink: #0e0e0e;
+  --color-ink-2: #1a1a1a;
+  --color-ink-3: #2a2a2a;
+  --color-paper: #ffffff;
+  --color-paper-warm: #fff8f2;
+  --color-orange: #ff5b1f;
+  --color-orange-600: #e64a12;
+  --color-orange-300: #ffb089;
+  --color-orange-100: #ffe3d2;
+  --color-gray-900: #141414;
+  --color-gray-700: #3d3d3d;
+  --color-gray-500: #7a7a7a;
+  --color-gray-300: #cfcfcf;
+  --color-gray-200: #e6e6e6;
+  --color-gray-100: #f2f2f2;
+  --color-gray-50: #f8f8f8;
+  --color-lime: #d7ff4a;
+  --color-sun: #ffd60a;
+  --color-sky: #4ab8ff;
+  --color-success: #1fb871;
+  --color-warn: #ffb020;
+  --color-error: #ff3b30;
+
+  --radius-brand-sm: 8px;
+  --radius-brand-md: 14px;
+  --radius-brand-lg: 22px;
+  --radius-brand-xl: 32px;
+  --shadow-brand-sm: 0 1px 2px rgb(14 14 14 / 8%);
+  --shadow-brand-md: 0 6px 20px rgb(14 14 14 / 10%);
+  --shadow-brand-lg: 0 18px 40px rgb(14 14 14 / 14%);
+  --shadow-pop: 6px 6px 0 #0e0e0e;
+}
+
+:root {
+  --m-ink: #0e0e0e;
+  --m-ink-2: #1a1a1a;
+  --m-ink-3: #2a2a2a;
+  --m-paper: #ffffff;
+  --m-paper-warm: #fff8f2;
+  --m-orange: #ff5b1f;
+  --m-orange-600: #e64a12;
+  --m-orange-300: #ffb089;
+  --m-orange-100: #ffe3d2;
+  --m-gray-900: #141414;
+  --m-gray-700: #3d3d3d;
+  --m-gray-500: #7a7a7a;
+  --m-gray-300: #cfcfcf;
+  --m-gray-200: #e6e6e6;
+  --m-gray-100: #f2f2f2;
+  --m-gray-50: #f8f8f8;
+  --m-lime: #d7ff4a;
+  --m-sun: #ffd60a;
+  --m-sky: #4ab8ff;
+  --m-success: #1fb871;
+  --m-warn: #ffb020;
+  --m-error: #ff3b30;
+  --m-font-display: "Fredoka", system-ui, sans-serif;
+  --m-font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --m-radius-sm: 8px;
+  --m-radius-md: 14px;
+  --m-radius-lg: 22px;
+  --m-radius-xl: 32px;
+  --m-radius-pill: 999px;
+  --m-shadow-sm: 0 1px 2px rgb(14 14 14 / 8%);
+  --m-shadow-md: 0 6px 20px rgb(14 14 14 / 10%);
+  --m-shadow-lg: 0 18px 40px rgb(14 14 14 / 14%);
+  --m-shadow-pop: 6px 6px 0 var(--m-ink);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--m-paper-warm);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--m-paper-warm);
+  color: var(--m-ink);
+  font-family: var(--m-font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--m-orange);
+  color: var(--m-paper);
+}
+
+.container-shell {
+  width: min(100% - 40px, 1240px);
+  margin-inline: auto;
+}
+
+.display-title {
+  font-family: var(--m-font-display);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.brand-outline {
+  border: 1.5px solid var(--m-ink);
+}
+
+.sticker-lift {
+  transition: transform 180ms ease, box-shadow 180ms ease,
+    border-color 180ms ease, background 180ms ease;
+}
+
+.sticker-lift:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--m-shadow-pop);
+}
+
+.focus-ring {
+  outline: 3px solid transparent;
+  outline-offset: 3px;
+}
+
+.focus-ring:focus-visible {
+  outline-color: var(--m-orange-300);
+}
+
+.gsap-marker-start,
+.gsap-marker-end,
+.gsap-marker-scroller-start,
+.gsap-marker-scroller-end {
+  display: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sticker-lift,
+  .brand-outline,
+  main h1,
+  main h2 {
+    will-change: transform, opacity;
+  }
+}
+
+@media (max-width: 640px) {
+  .container-shell {
+    width: min(100% - 28px, 1240px);
+  }
+}

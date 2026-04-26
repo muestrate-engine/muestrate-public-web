@@ -1,0 +1,23 @@
+---
+import { BaseLayout } from "@layouts";
+import {
+  BusinessCardShowcase,
+  DeliverablePageHeader,
+  DesignFooter,
+  DesignHeader,
+} from "@components";
+import { PAGE_META, organizationSchema } from "@config";
+---
+
+<BaseLayout meta={PAGE_META.designBusinessCard} structuredData={organizationSchema}>
+  <DesignHeader />
+  <main>
+    <DeliverablePageHeader
+      label="Entregable 01"
+      title="Tarjeta de presentación"
+      description="Formato estándar 90×55 mm. Dos caras. Dos variantes: negra principal y blanca alternativa para impresiones especiales o clientes que prefieren claro."
+    />
+    <BusinessCardShowcase />
+  </main>
+  <DesignFooter />
+</BaseLayout>

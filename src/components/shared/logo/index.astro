@@ -1,0 +1,29 @@
+---
+import { BRAND_MARK, ROUTES } from "@config";
+
+interface Props {
+  href?: string;
+  label?: string;
+  class?: string;
+  sparkleClass?: string;
+}
+
+const {
+  href = ROUTES.home,
+  label = "muéstrate",
+  class: className = "",
+  sparkleClass = "text-orange",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "focus-ring inline-flex items-center gap-1.5 font-display text-2xl font-bold leading-none tracking-normal",
+    className,
+  ]}
+  aria-label="Ir al inicio de Muéstrate"
+>
+  <span>{label}</span>
+  <span class={sparkleClass} aria-hidden="true">{BRAND_MARK.sparkle}</span>
+</a>

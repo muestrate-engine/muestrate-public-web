@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Muéstrate — Tarjeta de presentación</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { background: var(--m-paper-warm); min-height: 100vh; padding: 60px 24px; }
+  .page { max-width: 1100px; margin: 0 auto; }
+  h1 { font-family: var(--m-font-display); font-weight:600; font-size:44px; letter-spacing:-0.02em; margin:0 0 8px; }
+  .sub { color: var(--m-gray-700); margin: 0 0 48px; font-size: 16px; }
+
+  .label { font-family: var(--m-font-display); font-weight:600; font-size:13px; color:var(--m-orange); letter-spacing:0.1em; margin-bottom:12px; }
+
+  /* Tarjeta — 90mm x 55mm estándar Perú. Escalo a pixeles. */
+  .card-stage { display:grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 72px; }
+  .card {
+    width: 100%; aspect-ratio: 90/55;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--m-shadow-lg);
+    position: relative;
+    padding: 28px;
+    display:flex; flex-direction:column; justify-content: space-between;
+    font-family: var(--m-font-body);
+  }
+
+  /* ---- FRONT ---- */
+  .card.front {
+    background: var(--m-ink);
+    color: var(--m-paper);
+  }
+  .card.front .top-row { display:flex; justify-content: space-between; align-items: flex-start; }
+  .card.front .logo { width: 62%; }
+  .card.front .tag-pill {
+    background: var(--m-orange); color: var(--m-paper);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 5px 10px; border-radius: 999px;
+  }
+  .card.front .bottom { display:flex; justify-content:space-between; align-items:flex-end; }
+  .card.front .tagline {
+    font-family: var(--m-font-display); font-weight:500; font-size: 15px;
+    letter-spacing: -0.01em; max-width: 60%; line-height: 1.25;
+  }
+  .card.front .kicker { font-size: 10px; color: var(--m-gray-300); letter-spacing: 0.12em; font-weight:700; }
+
+  /* Decorative sparkle orange */
+  .card.front .sparkle-deco {
+    position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
+    opacity: .18;
+  }
+
+  /* ---- BACK ---- */
+  .card.back {
+    background: var(--m-orange);
+    color: var(--m-paper);
+  }
+  .card.back .name {
+    font-family: var(--m-font-display); font-weight:600; font-size: 26px;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .card.back .role {
+    font-size: 12px; font-weight: 600; margin-top: 4px;
+    opacity: .9; letter-spacing: 0.02em;
+  }
+  .card.back .contact {
+    display:flex; flex-direction:column; gap: 4px;
+    font-size: 11.5px; font-weight: 500; line-height: 1.5;
+  }
+  .card.back .contact .item { display:flex; align-items:center; gap: 8px; }
+  .card.back .contact svg { flex-shrink:0; }
+  .card.back .m-mark {
+    position: absolute; top: 24px; right: 28px;
+    font-family: var(--m-font-display); font-weight: 700;
+    font-size: 42px; line-height: 1;
+  }
+  .card.back .chip {
+    display:inline-block; background: var(--m-ink); color: var(--m-paper);
+    padding: 5px 10px; border-radius: 999px; font-size: 10px;
+    font-weight: 700; letter-spacing: 0.08em; margin-top: 6px;
+  }
+
+  /* Variant 2 — light */
+  .variant-2 .card.front { background: var(--m-paper); color: var(--m-ink); border: 1.5px solid var(--m-ink); }
+  .variant-2 .card.front .kicker { color: var(--m-gray-500); }
+  .variant-2 .card.back { background: var(--m-ink); color: var(--m-paper); }
+  .variant-2 .card.back .m-mark { color: var(--m-orange); }
+  .variant-2 .card.back .chip { background: var(--m-orange); }
+
+  /* Specs block */
+  .specs {
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    padding: 24px; background: var(--m-paper);
+    border: 1.5px solid var(--m-ink); border-radius: var(--m-radius-lg);
+    margin-top: 24px;
+  }
+  .specs .item .k { font-family: var(--m-font-display); font-weight:600; font-size: 22px; letter-spacing:-0.01em; }
+  .specs .item .v { font-size: 12px; color: var(--m-gray-500); margin-top: 2px; }
+
+  .variant-title { display:flex; align-items:center; gap:12px; margin: 40px 0 16px; }
+  .variant-title h2 { font-family: var(--m-font-display); font-weight:600; font-size: 24px; margin:0; letter-spacing:-0.01em; }
+  .variant-title .dot { width:10px; height:10px; border-radius:50%; background: var(--m-orange); }
+
+  .back-link { display:inline-flex; align-items:center; gap:6px; text-decoration:none; color: var(--m-ink); font-weight:700; margin-bottom:24px; font-size:14px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <a href="index.html" class="back-link">← Volver al sistema</a>
+  <div class="label">ENTREGABLE 01</div>
+  <h1>Tarjeta de presentación</h1>
+  <p class="sub">Formato estándar 90×55 mm. Dos caras. Dos variantes: negra (principal) y blanca (alternativa para impresiones especiales o clientes que prefieren claro).</p>
+
+  <!-- ==== VARIANT 1: Dark + Orange ==== -->
+  <div class="variant-title"><span class="dot"></span><h2>Variante principal · Negro + Naranja</h2></div>
+
+  <div class="card-stage">
+    <!-- FRENTE -->
+    <div class="card front">
+      <div class="top-row">
+        <svg class="logo" viewBox="0 0 520 140" fill="none" style="color:currentColor">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="currentColor"/><circle cx="36" cy="6" r="3" fill="currentColor"/></g>
+        </svg>
+        <div class="tag-pill">● AGENCIA</div>
+      </div>
+      <svg class="sparkle-deco" width="60" height="60" viewBox="0 0 60 60"><path d="M30 0 L34 26 L60 30 L34 34 L30 60 L26 34 L0 30 L26 26 Z" fill="#FF5B1F"/></svg>
+      <div class="bottom">
+        <div class="tagline">Tu negocio<br>online en 48h.</div>
+        <div class="kicker">LIMA · PERÚ</div>
+      </div>
+    </div>
+
+    <!-- DORSO -->
+    <div class="card back">
+      <div class="m-mark">m✦</div>
+      <div>
+        <div class="name">Luis Ramírez</div>
+        <div class="role">FUNDADOR · ESTRATEGIA DIGITAL</div>
+        <span class="chip">MUÉSTRATE</span>
+      </div>
+      <div class="contact">
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 4L8.12 15.88M22 2L11 13M3 21l9-9"/><path d="M3 21c0-4.97 4.03-9 9-9"/></svg>
+          +51 999 888 777
+        </div>
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5e3631323f1e332b3b2d2a2c3f2a3b702e3b">[email&#160;protected]</a>
+        </div>
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+          muestrate.pe
+        </div>
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @muestrate.pe
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==== VARIANT 2: Light + Dark ==== -->
+  <div class="variant-title"><span class="dot"></span><h2>Variante clara · Blanca + Tinta</h2></div>
+
+  <div class="card-stage variant-2">
+    <!-- FRENTE -->
+    <div class="card front">
+      <div class="top-row">
+        <svg class="logo" viewBox="0 0 520 140" fill="none" style="color:currentColor">
+          <text x="0" y="108" font-family="Fredoka, system-ui, sans-serif" font-weight="600" font-size="128" letter-spacing="-4" fill="currentColor">muéstrate</text>
+          <g transform="translate(470,6)"><path d="M14 0 L17 11 L28 14 L17 17 L14 28 L11 17 L0 14 L11 11 Z" fill="#FF5B1F"/><circle cx="36" cy="6" r="3" fill="#FF5B1F"/></g>
+        </svg>
+        <div class="tag-pill" style="background: var(--m-ink); color: var(--m-paper);">● AGENCIA</div>
+      </div>
+      <div class="bottom">
+        <div class="tagline" style="color: var(--m-ink);">Marketing con<br>chispa peruana.</div>
+        <div class="kicker">LIMA · PERÚ</div>
+      </div>
+    </div>
+
+    <!-- DORSO -->
+    <div class="card back">
+      <div class="m-mark">m✦</div>
+      <div>
+        <div class="name">Luis Ramírez</div>
+        <div class="role" style="color: var(--m-orange-300);">FUNDADOR · ESTRATEGIA DIGITAL</div>
+        <span class="chip">MUÉSTRATE</span>
+      </div>
+      <div class="contact">
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          +51 999 888 777
+        </div>
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="40282f2c21002d35253334322134256e3025">[email&#160;protected]</a>
+        </div>
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+          muestrate.pe
+        </div>
+        <div class="item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @muestrate.pe
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==== SPECS ==== -->
+  <div class="label" style="margin-top:48px;">ESPECIFICACIONES DE IMPRESIÓN</div>
+  <div class="specs">
+    <div class="item"><div class="k">90 × 55mm</div><div class="v">Formato estándar</div></div>
+    <div class="item"><div class="k">350g</div><div class="v">Papel couché mate</div></div>
+    <div class="item"><div class="k">4/4</div><div class="v">Full color ambas caras</div></div>
+    <div class="item"><div class="k">Barniz UV</div><div class="v">Sobre el logo (opcional)</div></div>
+  </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>

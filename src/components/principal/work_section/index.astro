@@ -1,0 +1,116 @@
+---
+import { workCases, WHATSAPP_URL } from "@config";
+import { SectionHeading } from "@components/shared";
+---
+
+<section id="trabajo" class="bg-paper-warm py-24 md:py-32">
+  <div class="container-shell">
+    <SectionHeading
+      eyebrow="04 / Nuestro trabajo"
+      description='Una muestra de las MYPEs peruanas que pasaron de "invisibles" a aparecer en la primera página de Google.'
+    >
+      <Fragment slot="title"
+        >Negocios que<br />ya se <span class="text-orange">muestran.</span
+        ></Fragment
+      >
+    </SectionHeading>
+
+    <div class="grid gap-5 md:grid-cols-6">
+      {
+        workCases.map((item) => {
+          const className = `sticker-lift brand-outline relative flex min-h-72 flex-col justify-between overflow-hidden rounded-brand-lg p-7 ${
+            item.className
+          }${item.imageUrl ? " !bg-transparent !text-paper" : ""}`;
+
+          return item.websiteUrl ? (
+            <a
+              href={item.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`focus-ring group ${className}`}
+            >
+              {item.imageUrl ? (
+                <div class="absolute inset-0 -z-[1]">
+                  <img
+                    src={item.imageUrl}
+                    alt=""
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent"
+                    aria-hidden="true"
+                  />
+                </div>
+              ) : (
+                <div
+                  class="absolute inset-0 -z-0 grid place-items-center overflow-hidden p-6 font-display text-[clamp(5rem,12vw,9rem)] font-bold leading-none tracking-normal opacity-10"
+                  aria-hidden="true"
+                >
+                  {item.visual}
+                </div>
+              )}
+              <div class="relative z-10">
+                <span class="inline-flex rounded-full bg-ink/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
+                  {item.category}
+                </span>
+              </div>
+              <div class="relative z-10">
+                <h3 class="font-display text-2xl font-semibold leading-none tracking-normal md:text-[1.65rem]">
+                  {item.title}
+                </h3>
+                <p class="mt-2 text-sm opacity-80">{item.result}</p>
+              </div>
+            </a>
+          ) : (
+            <article class={className}>
+              {item.imageUrl ? (
+                <div class="absolute inset-0 -z-[1]">
+                  <img
+                    src={item.imageUrl}
+                    alt=""
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent"
+                    aria-hidden="true"
+                  />
+                </div>
+              ) : (
+                <div
+                  class="absolute inset-0 -z-0 grid place-items-center overflow-hidden p-6 font-display text-[clamp(5rem,12vw,9rem)] font-bold leading-none tracking-normal opacity-10"
+                  aria-hidden="true"
+                >
+                  {item.visual}
+                </div>
+              )}
+              <div class="relative z-10">
+                <span class="inline-flex rounded-full bg-ink/15 px-3 py-1 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
+                  {item.category}
+                </span>
+              </div>
+              <div class="relative z-10">
+                <h3 class="font-display text-2xl font-semibold leading-none tracking-normal md:text-[1.65rem]">
+                  {item.title}
+                </h3>
+                <p class="mt-2 text-sm opacity-80">{item.result}</p>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+
+    <div class="mt-10 text-center">
+      <a
+        href={WHATSAPP_URL}
+        class="focus-ring inline-flex border-b-2 border-ink pb-1 font-display text-lg font-semibold"
+      >
+        Quiero mi web en 48h →
+      </a>
+    </div>
+  </div>
+</section>
