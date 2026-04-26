@@ -1,10 +1,10 @@
 ---
 import { BaseLayout } from "@layouts";
 import { PrivacyContent, SiteFooter, SiteHeader } from "@components";
-import { PAGE_META, organizationSchema } from "@config";
+import { PAGE_META } from "@config";
 ---
 
-<BaseLayout meta={PAGE_META.privacy} structuredData={organizationSchema}>
+<BaseLayout meta={PAGE_META.privacy}>
   <SiteHeader />
   <PrivacyContent />
   <SiteFooter />

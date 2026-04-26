@@ -12,10 +12,10 @@ import {
   TestimonialsSection,
   WorkSection,
 } from "@components";
-import { localBusinessSchema, organizationSchema, PAGE_META } from "@config";
+import { PAGE_META } from "@config";
 ---
 
-<BaseLayout meta={PAGE_META.home} structuredData={[organizationSchema, localBusinessSchema]}>
+<BaseLayout meta={PAGE_META.home}>
   <SiteHeader />
   <main>
     <HeroSection />

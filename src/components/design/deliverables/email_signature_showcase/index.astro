@@ -1,7 +1,8 @@
 ---
-import { CONTACT_EMAIL, CONTACT_PHONE } from "@config";
+import { CONTACT_EMAIL, CONTACT_PHONE, SITE_HOST, SITE_URL } from "@config";
 import SectionTitle from "../section_title/index.astro";
 
+const phoneUri = CONTACT_PHONE.replace(/[^\d+]/g, "");
 const signatureHtml = `<table cellpadding="0" cellspacing="0" border="0" style="font-family:Helvetica,Arial,sans-serif;color:#0E0E0E;">
   <tr>
     <td style="padding-right:20px;border-right:2px solid #FF5B1F;vertical-align:middle;">
@@ -11,9 +12,9 @@ const signatureHtml = `<table cellpadding="0" cellspacing="0" border="0" style="
       <div style="font-family:Fredoka,sans-serif;font-weight:600;font-size:18px;">Luis Ramírez</div>
       <div style="font-size:12px;color:#7A7A7A;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;">Fundador · Muéstrate</div>
       <div style="font-size:13px;color:#3D3D3D;margin-top:10px;">
-        <a href="tel:+51999888777" style="color:#3D3D3D;text-decoration:none;">+51 999 888 777</a> ·
-        <a href="mailto:hola@muestrate.pe" style="color:#3D3D3D;text-decoration:none;">hola@muestrate.pe</a> ·
-        <a href="https://muestrate.pe" style="color:#3D3D3D;text-decoration:none;">muestrate.pe</a>
+        <a href="tel:${phoneUri}" style="color:#3D3D3D;text-decoration:none;">${CONTACT_PHONE}</a> ·
+        <a href="mailto:${CONTACT_EMAIL}" style="color:#3D3D3D;text-decoration:none;">${CONTACT_EMAIL}</a> ·
+        <a href="${SITE_URL}" style="color:#3D3D3D;text-decoration:none;">${SITE_HOST}</a>
       </div>
       <div style="margin-top:8px;font-size:12px;color:#FF5B1F;font-family:Fredoka;">Tu negocio online en 48h. Así de simple.</div>
     </td>
@@ -27,7 +28,7 @@ const signatureHtml = `<table cellpadding="0" cellspacing="0" border="0" style="
     <article class="brand-outline overflow-hidden rounded-brand-lg bg-paper shadow-brand-lg">
       <div class="flex items-center justify-between border-b border-gray-200 bg-gray-100 px-5 py-3 text-sm text-gray-700">
         <div class="flex gap-1.5"><span class="size-2.5 rounded-full bg-gray-300"></span><span class="size-2.5 rounded-full bg-gray-300"></span><span class="size-2.5 rounded-full bg-gray-300"></span></div>
-        <span>Re: propuesta web · muestrate.pe</span>
+        <span>Re: propuesta web · {SITE_HOST}</span>
         <span></span>
       </div>
       <div class="p-8 font-sans text-sm leading-7 text-ink">
@@ -46,7 +47,7 @@ const signatureHtml = `<table cellpadding="0" cellspacing="0" border="0" style="
               <span class="mx-2 text-gray-300">·</span>
               <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
               <span class="mx-2 text-gray-300">·</span>
-              <a href="https://muestrate.pe">muestrate.pe</a>
+              <a href={SITE_URL}>{SITE_HOST}</a>
             </div>
             <div class="mt-2 font-display text-xs font-medium text-orange">Tu negocio online en 48h. Así de simple.</div>
           </div>
@@ -77,7 +78,7 @@ const signatureHtml = `<table cellpadding="0" cellspacing="0" border="0" style="
               <div class="mt-4 grid gap-1 text-xs text-gray-200">
                 <p>✉ {CONTACT_EMAIL}</p>
                 <p>📱 {CONTACT_PHONE}</p>
-                <p>🌐 muestrate.pe</p>
+                <p>🌐 {SITE_HOST}</p>
               </div>
             </div>
             <div class="text-right">

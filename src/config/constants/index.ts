@@ -1,6 +1,7 @@
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
+  INSTAGRAM_AT,
   SOCIAL_LINKS,
   WHATSAPP_URL,
 } from "../env";
@@ -510,5 +511,5 @@ export const contactCards = [
     href: `tel:${CONTACT_PHONE.replace(/[^\d+]/g, "")}`,
   },
   { label: "WhatsApp", value: "Hablar ahora", href: WHATSAPP_URL },
-  { label: "Instagram", value: "@muestrate.pe", href: SOCIAL_LINKS.instagram },
+  { label: "Instagram", value: INSTAGRAM_AT, href: SOCIAL_LINKS.instagram },
 ] as const;

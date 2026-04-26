@@ -1,10 +1,18 @@
 export const SITE_URL = (
-  import.meta.env.PUBLIC_SITE_URL ?? "https://muestrate.pe"
+  import.meta.env.PUBLIC_SITE_URL ?? "https://muestrate.lat"
 ).replace(/\/$/, "");
+/** Host público (sin protocolo) para textos, tarjetas, etc. */
+export const SITE_HOST = (() => {
+  try {
+    return new URL(SITE_URL).host;
+  } catch {
+    return "muestrate.lat";
+  }
+})();
 export const BRAND_NAME = "Muéstrate";
 export const LEGAL_NAME = "Muéstrate";
 export const CONTACT_EMAIL =
-  import.meta.env.PUBLIC_CONTACT_EMAIL ?? "hola@muestrate.pe";
+  import.meta.env.PUBLIC_CONTACT_EMAIL ?? "hola@muestrate.lat";
 export const CONTACT_PHONE =
   import.meta.env.PUBLIC_CONTACT_PHONE ?? "+51 999 888 777";
 export const CONTACT_PHONE_URI = CONTACT_PHONE.replace(/[^\d+]/g, "");
@@ -28,4 +36,21 @@ export const SOCIAL_LINKS = {
     import.meta.env.PUBLIC_LINKEDIN_URL ??
     "https://linkedin.com/company/muestrate",
 };
+
+/** @usuario de Instagram según `PUBLIC_INSTAGRAM_URL` (o fallback). */
+export const INSTAGRAM_AT = (() => {
+  const fallback = "@muestrate";
+  try {
+    const p = new URL(SOCIAL_LINKS.instagram).pathname.replace(/\/$/, "");
+    const h = p.split("/").filter(Boolean).pop();
+    if (!h) return fallback;
+    return h.startsWith("@") ? h : `@${h}`;
+  } catch {
+    return fallback;
+  }
+})();
+
+export const TWITTER_HANDLE = (
+  import.meta.env.PUBLIC_TWITTER_HANDLE ?? ""
+).replace(/^@/, "");
 export const CURRENT_YEAR = new Date().getFullYear();

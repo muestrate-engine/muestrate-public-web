@@ -1,10 +1,10 @@
 ---
 import { BaseLayout } from "@layouts";
 import { SiteFooter, SiteHeader, TermsContent } from "@components";
-import { PAGE_META, organizationSchema } from "@config";
+import { PAGE_META } from "@config";
 ---
 
-<BaseLayout meta={PAGE_META.terms} structuredData={organizationSchema}>
+<BaseLayout meta={PAGE_META.terms}>
   <SiteHeader />
   <TermsContent />
   <SiteFooter />
